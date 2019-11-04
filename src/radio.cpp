@@ -33,6 +33,7 @@ void radio_loop()
         //check if config needs to be updated because of a switching
         for (SingleConfig cfg : configs)
         {
+
             //internally switched off but switch on was sent
             if (cfg.state == false &&
                 cfg.on.proto == proto &&

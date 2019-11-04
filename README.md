@@ -58,6 +58,7 @@ The settings can be changed via a webinterface, however it's much easier to uplo
 The current version uses two remote services to collect the geolocation of the device and the current timezone after connecting to the local WLAN.
 * [IPstack geoloaction](https://ipstack.com/)
 * [Timezone DB](https://timezonedb.com/)
+
 You need to create an account to aquire your individual api keys to finish the configuration
 
 
