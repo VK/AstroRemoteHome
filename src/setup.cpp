@@ -22,8 +22,9 @@ void run_setup()
 
     wifiManager.resetSettings();
     wifiManager.setSaveConfigCallback(setSaveConfig);
-    wifiManager.setConfigPortalTimeout(600);
+    wifiManager.setConfigPortalTimeout(300);
 
+    String oldWifiSSID = wlanSsid;
     String oldWifiPass = wlanPassword;
     String oldMqttPass = mqttPassword;
     String old_api_location = api_location;
@@ -51,7 +52,7 @@ void run_setup()
     wifiManager.addParameter(&setup_longitude);
 
     wifiManager.setBreakAfterConfig(true);
-    wifiManager.autoConnect("MySockets");
+    wifiManager.autoConnect("AstroRemoteHome");
 
     //lets hope all parameters are right and we use the data to write a config file
     //if something is wrong we will see if we and up in the config module again
@@ -71,7 +72,15 @@ void run_setup()
         File file = SPIFFS.open("/config.json", "w");
 
         doc.clear();
-        doc["wlan"]["ssid"] = WiFi.SSID();
+        if (WiFi.SSID() != "")
+        {
+            doc["wlan"]["ssid"] = WiFi.SSID();
+        }
+        else
+        {
+            doc["wlan"]["ssid"] = oldWifiSSID;
+        }
+
         if (WiFi.psk() != "")
         {
             doc["wlan"]["password"] = WiFi.psk();
@@ -93,8 +102,6 @@ void run_setup()
         {
             doc["mqtt"]["password"] = oldMqttPass;
         }
-
-
 
         doc["loc"]["latitude"] = atof(setup_latitude.getValue());
         doc["loc"]["longitude"] = atof(setup_longitude.getValue());

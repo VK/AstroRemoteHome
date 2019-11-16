@@ -92,7 +92,7 @@ SwitchTimes makeSwitchTimes(uint8_t Year, uint8_t Month, uint8_t Day, AutoSwitch
     //compute start and end time depending on switch type
     int startM = makeSwitchMinutes(sw.start, sw.sT);
     int endM = makeSwitchMinutes(sw.end, sw.eT);
-   
+
     output.baseStartTime = seconds;
     output.baseStartTime += startM * SECS_PER_MIN;
     output.weekDayStartTime = dayOfWeek(output.baseStartTime) - 1;
@@ -129,7 +129,7 @@ SwitchTimes makeSwitchTimes(uint8_t Year, uint8_t Month, uint8_t Day, AutoSwitch
         output.endTime = output.baseEndTime;
         output.endTime += random(-60 * sw.eD, 60 * sw.eD);
     }
-    
+
     return output;
 }
 
@@ -165,7 +165,8 @@ void logic_loop()
 
         mqtt.publish(("Esp/" + wifiMAC + "/SUN").c_str(),
                      ("{\"sunrise\":" + String(logic_localSunrise) +
-                      ", \"sunset\":" + String(logic_localSunset) + "}")
+                      ", \"sunset\":" + String(logic_localSunset) +
+                      ", \"now\":\"" + String(hour()) + ":" + (minute() < 10 ? "0" + String(minute()) : String(minute())) + "\"}")
                          .c_str(),
                      true);
 
