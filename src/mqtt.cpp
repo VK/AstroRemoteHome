@@ -243,10 +243,16 @@ bool mqtt_setup()
     dtostrf(longitude, 1, 5, PufferChar2);
     mqtt.publish(("Esp/" + wifiMAC + "/LOC").c_str(), ("{\"longitude\":" + String(PufferChar2) + ", \"latitude\":" + String(PufferChar1) + "}").c_str(), true);
     mqtt.publish(("Esp/" + wifiMAC + "/IP").c_str(), wifiIP.c_str(), true);
+    mqtt.publish(("Esp/" + wifiMAC + "/VERS").c_str(), current_version.c_str(), true);
 
     mqtt.subscribe("MySockets/#");
     mqtt.subscribe("Esp/send");
     return true;
+}
+
+void mqtt_disconnect()
+{
+    mqtt.disconnect();
 }
 
 void mqtt_publish(SingleConfig &cfg)

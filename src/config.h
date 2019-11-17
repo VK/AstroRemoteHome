@@ -62,6 +62,12 @@ extern float longitude;
 extern String api_location;
 extern String api_timezone;
 
+//update server locations
+extern String update_url;
+//version tracking
+extern String current_version;
+
+
 bool config_setup();
 
 #endif

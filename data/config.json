@@ -17,5 +17,8 @@
     "api": {
         "location": "http://api.ipstack.com/check?access_key=???",
         "timezone": "http://api.timezonedb.com/v2.1/get-time-zone?key=???"
+    },
+    "update": {
+        "url": ""
     }
 }

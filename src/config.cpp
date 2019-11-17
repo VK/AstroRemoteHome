@@ -5,6 +5,9 @@ std::vector<SingleConfig> configs;
 //way to order the days of a week
 std::vector<String> days_index = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
 
+//variable to store the current version
+String current_version = "1.0_2019.11.17";
+
 //your wlan
 String wlanSsid;
 String wlanPassword;
@@ -27,8 +30,15 @@ float longitude;
 String api_location;
 String api_timezone;
 
+//update location
+String update_url;
+
 bool config_setup()
 {
+    Serial.print("Current Version: ");
+    Serial.println(current_version);
+    Serial.println("Init Config");
+    
 
     //Initialize File System
     if (SPIFFS.begin())
@@ -76,6 +86,8 @@ bool config_setup()
 
     api_location = doc["api"]["location"].as<String>();
     api_timezone = doc["api"]["timezone"].as<String>();
+    
+    update_url = doc["update"]["url"].as<String>();
 
     char message[1000];
     serializeJson(doc, message);

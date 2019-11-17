@@ -19,6 +19,7 @@ extern String wifiMAC;
 bool wifi_setup();
 void wifi_loop();
 void update_timezone_offsets();
+void wifi_check_ota_update();
 
 
 #endif

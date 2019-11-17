@@ -171,7 +171,7 @@ void logic_loop()
                      true);
 
         yearIdx -= 1970; //make unix years
-        next_dd_calc = thisrun + 72ul;
+        next_dd_calc = thisrun + 3600ul;
     }
 
     for (unsigned int ci = 0; ci < configs.size(); ci++)
@@ -225,3 +225,7 @@ void logic_loop()
 
     logic_lastrun = thisrun;
 }
+
+
+
+

@@ -3,6 +3,7 @@
 #include "mqtt.h"
 #include "TimeLib.h"
 #include "ESP8266HTTPClient.h"
+#include "ESP8266httpUpdate.h"
 
 WiFiClientSecure espClient;
 WiFiUDP ntpUDP;
@@ -13,6 +14,7 @@ HTTPClient http;
 
 unsigned int connection_error_count = 0;
 unsigned int keepalive_send_loop = 0;
+unsigned long wifi_next_ota_check;
 
 bool wifi_setup()
 {
@@ -69,6 +71,11 @@ bool wifi_setup()
         }
     }
 
+    //init ota update start time, check for new updates in 10 Minutes
+    timeClient.update();
+    setTime(timeClient.getEpochTime());
+    wifi_next_ota_check = timeClient.getEpochTime() + 600ul;
+
     return true;
 }
 
@@ -121,15 +128,19 @@ void wifi_loop()
         {
             Serial.println("MQTT connection error");
             connection_error_count++;
-            delay(100);
+            delay(1000);
+            mqtt_setup();
         }
+
+        wifi_check_ota_update();
     }
     else
     {
         Serial.println("WiFi connection error");
         mqtt.disconnect();
         connection_error_count++;
-        delay(100);
+        delay(1000);
+        wifi_setup();
     }
 
     if (connection_error_count == 6)
@@ -139,5 +150,38 @@ void wifi_loop()
     if (connection_error_count > 60)
     {
         ESP.restart();
+    }
+}
+
+void wifi_check_ota_update()
+{
+    unsigned long thisrun = timeClient.getEpochTime();
+
+    if (thisrun > wifi_next_ota_check)
+    {
+        mqtt_disconnect();
+        delay(100);
+        Serial.println("Check for new firmware");
+
+        auto ret = ESPhttpUpdate.update(espClient, update_url, current_version);
+        // if successful, ESP will restart
+
+        switch (ret)
+        {
+        case HTTP_UPDATE_FAILED:
+            Serial.printf("HTTP_UPDATE_FAILD Error (%d): %s\n", ESPhttpUpdate.getLastError(), ESPhttpUpdate.getLastErrorString().c_str());
+            break;
+
+        case HTTP_UPDATE_NO_UPDATES:
+            Serial.println("HTTP_UPDATE_NO_UPDATES");
+            break;
+
+        case HTTP_UPDATE_OK:
+            Serial.println("HTTP_UPDATE_OK");
+            break;
+        }
+
+        //check for new updates the next day
+        wifi_next_ota_check = thisrun + 86400ul;
     }
 }

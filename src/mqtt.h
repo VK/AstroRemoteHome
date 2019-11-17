@@ -8,6 +8,7 @@
 extern PubSubClient mqtt;
 
 bool mqtt_setup();
+void mqtt_disconnect();
 void mqtt_publish(SingleConfig &cfg);
 
 #endif

@@ -29,6 +29,7 @@ void run_setup()
     String oldMqttPass = mqttPassword;
     String old_api_location = api_location;
     String old_api_timezone = api_timezone;
+    String old_update_url = update_url;
 
     WiFiManagerParameter setup_mqttServer("mqttServer", "mqttServer", mqttServer.c_str(), 99);
     wifiManager.addParameter(&setup_mqttServer);
@@ -108,6 +109,8 @@ void run_setup()
 
         doc["api"]["location"] = old_api_location;
         doc["api"]["timezone"] = old_api_timezone;
+
+        doc["update"]["url"] = old_update_url;
 
         char message[1000];
         serializeJson(doc, message);
