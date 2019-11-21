@@ -6,7 +6,7 @@ std::vector<SingleConfig> configs;
 std::vector<String> days_index = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
 
 //variable to store the current version
-String current_version = "1.0_2019.11.17";
+String current_version = "1.0_2019.11.21";
 
 //your wlan
 String wlanSsid;

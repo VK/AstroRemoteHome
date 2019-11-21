@@ -73,7 +73,8 @@ bool wifi_setup()
 
     //init ota update start time, check for new updates in 10 Minutes
     timeClient.update();
-    setTime(timeClient.getEpochTime());
+    update_time();
+    
     wifi_next_ota_check = timeClient.getEpochTime() + 600ul;
 
     return true;
@@ -101,7 +102,23 @@ void update_timezone_offsets()
             Serial.print(timeZoneOffset);
             Serial.println(daylightSaving);
         }
+
+        update_time();
     }
+}
+
+
+void update_time()
+{
+    unsigned long thisrun = timeClient.getEpochTime();
+    thisrun += timeZoneOffset * SECS_PER_MIN;
+
+    if (daylightSaving)
+    {
+        thisrun += SECS_PER_HOUR;
+    }
+
+    setTime(thisrun);
 }
 
 void wifi_loop()
@@ -110,7 +127,7 @@ void wifi_loop()
     if (WiFi.status() == WL_CONNECTED)
     {
         timeClient.update();
-        setTime(timeClient.getEpochTime());
+        update_time();
 
         if (mqtt.connected())
         {
