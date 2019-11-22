@@ -14,6 +14,7 @@ HTTPClient http;
 
 unsigned int connection_error_count = 0;
 unsigned int keepalive_send_loop = 0;
+unsigned long wifi_next_timezone_update;
 unsigned long wifi_next_ota_check;
 
 bool wifi_setup()
@@ -74,39 +75,53 @@ bool wifi_setup()
     //init ota update start time, check for new updates in 10 Minutes
     timeClient.update();
     update_time();
+
+
     
-    wifi_next_ota_check = timeClient.getEpochTime() + 600ul;
 
     return true;
 }
 
 void update_timezone_offsets()
 {
-
-    //get the location
-    http.begin(api_timezone + "&by=position&lat=" + String(latitude) + "&lng=" + String(longitude) + "&format=json");
-    int httpCode = http.GET();
-
-    // httpCode will be negative on error
-    if (httpCode > 0)
+    unsigned long thisrun = timeClient.getEpochTime();
+    
+    if (thisrun > wifi_next_timezone_update)
     {
-        String message = http.getString();
-        Serial.println(message);
-        deserializeJson(doc, message);
+        Serial.println("timezone update ");
+        //get the location
+        http.begin(api_timezone + "&by=position&lat=" + String(latitude) + "&lng=" + String(longitude) + "&format=json");
+        int httpCode = http.GET();
 
-        if (doc.containsKey("gmtOffset") && doc.containsKey("dst"))
+        // httpCode will be negative on error
+        if (httpCode > 0)
         {
-            timeZoneOffset = doc["gmtOffset"].as<int>() / 60;
-            daylightSaving = (doc["dst"].as<int>() == 1);
-            Serial.print("time   ");
-            Serial.print(timeZoneOffset);
-            Serial.println(daylightSaving);
-        }
+            String message = http.getString();
+            Serial.println(message);
+            deserializeJson(doc, message);
 
-        update_time();
+            if (doc.containsKey("gmtOffset") && doc.containsKey("dst"))
+            {
+                timeZoneOffset = doc["gmtOffset"].as<int>() / 60;
+                daylightSaving = (doc["dst"].as<int>() == 1);
+                Serial.print("time   ");
+                Serial.print(timeZoneOffset);
+                Serial.print(" ");
+                Serial.println(daylightSaving);
+            }
+
+            update_time();
+
+            //check for new updates in one hour
+            wifi_next_timezone_update = thisrun + 3600ul;
+        }
+        else
+        {
+            //check for new updates in ten minutes
+            wifi_next_timezone_update = thisrun + 600ul;
+        }
     }
 }
-
 
 void update_time()
 {
@@ -127,6 +142,7 @@ void wifi_loop()
     if (WiFi.status() == WL_CONNECTED)
     {
         timeClient.update();
+        update_timezone_offsets();
         update_time();
 
         if (mqtt.connected())

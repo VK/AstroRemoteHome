@@ -8,14 +8,14 @@
 #include "mqtt.h"
 #include "logic.h"
 
-
-
 DynamicJsonDocument doc(5000);
 
 void setup()
 {
   Serial.begin(115200);
 
+  wifi_next_ota_check = 0;
+  wifi_next_timezone_update = 0;
 
   if (config_setup() &&
       radio_setup() &&

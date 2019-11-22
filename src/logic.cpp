@@ -146,8 +146,6 @@ void logic_loop()
 
     if (thisrun > next_dd_calc)
     {
-        update_timezone_offsets();
-
         thisrun = timeClient.getEpochTime();
         thisrun += timeZoneOffset * SECS_PER_MIN;
         //add dst offsets

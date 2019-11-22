@@ -16,6 +16,10 @@ extern NTPClient timeClient;
 extern String wifiIP;
 extern String wifiMAC;
 
+//timiner for updating the firmware and the timezone
+extern unsigned long wifi_next_ota_check;
+extern unsigned long wifi_next_timezone_update;
+
 bool wifi_setup();
 void wifi_loop();
 void update_timezone_offsets();
