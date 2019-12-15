@@ -27,7 +27,7 @@ The web app to control the setup is located at [vk.github.io/AstroRemoteHome/](h
 
 Controller box                                               | Web App in action
 :---------------------------------------------------------------:|:-----------------------------------------------------------:
-<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" height="375px" width="375px" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" height="375px" width="375px" />  |  ![](https://vk.github.io/AstroRemoteHome/img/app.gif)
+<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" height="370px" width="370px" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" height="370px" width="370px" />  |  ![](https://vk.github.io/AstroRemoteHome/img/app.gif)
 
 
 ## Configuration
