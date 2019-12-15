@@ -25,6 +25,10 @@ All required time information is retrieved from remote services and the switch s
 
 ![Breadboard](https://vk.github.io/AstroRemoteHome/img/breadboard.png "BreadBoard")
 
+Controller box                                               | Web App in action
+:---------------------------------------------------------------:|:-----------------------------------------------------------:
+<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" height="375px" width="375px" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" height="375px" width="375px" />  |  ![](https://vk.github.io/FootSwitch/docu/FootSwitchApp.gif)
+
 
 ## Configuration
 
@@ -51,6 +55,9 @@ The settings can be changed via a webinterface, however it's much easier to uplo
     "api": {
         "location": "http://api.ipstack.com/check?access_key=???",
         "timezone": "http://api.timezonedb.com/v2.1/get-time-zone?key=???"
+    },
+    "update": {
+        "url": ""
     }
 }
 ```
