@@ -4,7 +4,7 @@ AstroRemoteHome is an Esp8266 Arduino project to remote controll 433 MHz sockets
 Each one can be individually controlled base on a local time or relative to sunrise and sunset.
 All required time information is retrieved from remote services and the switch settings are exchanged via an MQTT.
 
-
+The web app to control the setup is located at [vk.github.io/AstroRemoteHome/](https://vk.github.io/AstroRemoteHome/)
 
 
 
@@ -27,7 +27,7 @@ All required time information is retrieved from remote services and the switch s
 
 Controller box                                               | Web App in action
 :---------------------------------------------------------------:|:-----------------------------------------------------------:
-<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" height="375px" width="375px" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" height="375px" width="375px" />  |  ![](https://vk.github.io/FootSwitch/docu/FootSwitchApp.gif)
+<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" height="375px" width="375px" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" height="375px" width="375px" />  |  ![](https://vk.github.io/AstroRemoteHome/img/app.gif)
 
 
 ## Configuration
