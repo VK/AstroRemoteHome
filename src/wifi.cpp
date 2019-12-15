@@ -76,16 +76,13 @@ bool wifi_setup()
     timeClient.update();
     update_time();
 
-
-    
-
     return true;
 }
 
 void update_timezone_offsets()
 {
     unsigned long thisrun = timeClient.getEpochTime();
-    
+
     if (thisrun > wifi_next_timezone_update)
     {
         Serial.println("timezone update ");
@@ -114,6 +111,9 @@ void update_timezone_offsets()
 
             //check for new updates in one hour
             wifi_next_timezone_update = thisrun + 3600ul;
+
+            if (wifi_next_ota_check == 0)
+                wifi_next_ota_check = thisrun + 600ul;
         }
         else
         {
