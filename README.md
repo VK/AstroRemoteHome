@@ -27,7 +27,7 @@ All required time information is retrieved from remote services and the switch s
 
 Controller box                                               | Web App in action
 :---------------------------------------------------------------:|:-----------------------------------------------------------:
-![](https://vk.github.io/AstroRemoteHome/img/box_open.png)  ![](https://vk.github.io/AstroRemoteHome/img/box_closed.png)  |  ![](https://vk.github.io/FootSwitch/docu/FootSwitchApp.gif)
+![](https://vk.github.io/AstroRemoteHome/img/box_open.png =375x375)  ![](https://vk.github.io/AstroRemoteHome/img/box_closed.png =375x375)  |  ![](https://vk.github.io/FootSwitch/docu/FootSwitchApp.gif)
 
 
 ## Configuration
