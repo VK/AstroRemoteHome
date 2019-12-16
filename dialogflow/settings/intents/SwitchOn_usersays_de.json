@@ -1,0 +1,302 @@
+[
+  {
+    "id": "d2a546b3-cb75-4e84-abb4-fa12d4e68ef6",
+    "data": [
+      {
+        "text": "Könntest du bitte ",
+        "userDefined": false
+      },
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " einschalten",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e5262527-9462-4d97-b57a-0196d72c3135",
+    "data": [
+      {
+        "text": "Ich bräuchte ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c907102a-a91f-4547-8b13-95ccd3edc8f5",
+    "data": [
+      {
+        "text": "Ich brauch ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7eaf5a2d-69e0-40a5-b302-c5ab2f775f35",
+    "data": [
+      {
+        "text": "kannst du nicht ",
+        "userDefined": false
+      },
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " einschalten",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7c4a3dd4-9298-4537-8f42-3140adecceef",
+    "data": [
+      {
+        "text": "Schalt doch ",
+        "userDefined": false
+      },
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "ein",
+        "alias": "time",
+        "meta": "@sys.time",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c45691ad-46b7-4c1e-8715-1f9383351b7c",
+    "data": [
+      {
+        "text": "starte doch ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": true
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d9bf5eaf-ca31-457e-8108-380f5c19ee97",
+    "data": [
+      {
+        "text": "aktiviere ",
+        "userDefined": false
+      },
+      {
+        "text": "D",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "74fb04ff-68ce-40b7-b6ac-8242504c9842",
+    "data": [
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " Energie",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b749cbfc-7f76-4ab9-a897-578ffc7da543",
+    "data": [
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " aktivieren",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b4a87379-fcb6-4f15-a9e4-ea2d586bda8b",
+    "data": [
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " an",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7ffd1540-1943-45cf-b9fe-d48049927d4a",
+    "data": [
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "ein",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " bitte",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d8bd025b-ca10-4592-b5f8-cc68a4e2150e",
+    "data": [
+      {
+        "text": "Könntest du ",
+        "userDefined": false
+      },
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " einschalten.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cb382147-ece8-4c7a-a8ec-9d6464d17e52",
+    "data": [
+      {
+        "text": "Ich brauche ",
+        "userDefined": false
+      },
+      {
+        "text": "jetzt",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": ".",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "bf563756-9c7d-419c-9d1d-c2e2c8171c17",
+    "data": [
+      {
+        "text": "Kannst du ",
+        "userDefined": false
+      },
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " einschalten.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

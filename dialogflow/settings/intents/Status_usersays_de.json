@@ -1,0 +1,143 @@
+[
+  {
+    "id": "e2c3837b-be20-45d7-8d95-45c7d719e054",
+    "data": [
+      {
+        "text": "is ",
+        "userDefined": false
+      },
+      {
+        "text": "a",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " aus",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a6c78737-8cb7-4b5e-97ad-38cf0a88ad23",
+    "data": [
+      {
+        "text": "is ",
+        "userDefined": false
+      },
+      {
+        "text": "a",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " an",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "cb8926be-2f97-4d20-a64b-8ea0a56db1d7",
+    "data": [
+      {
+        "text": "ist ",
+        "userDefined": false
+      },
+      {
+        "text": "D",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": true
+      },
+      {
+        "text": " aktiv",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1f27b65a-fde3-45c1-b82c-d991fd31a866",
+    "data": [
+      {
+        "text": "Wie schauts mit ",
+        "userDefined": false
+      },
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " aus?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1030126e-763e-4543-ad1b-a01c1876444d",
+    "data": [
+      {
+        "text": "Läuft ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "gerade",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": "?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "7c399f14-4370-46f7-a36c-f68098371427",
+    "data": [
+      {
+        "text": "Hab ich ",
+        "userDefined": false
+      },
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " eingeschaltet?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

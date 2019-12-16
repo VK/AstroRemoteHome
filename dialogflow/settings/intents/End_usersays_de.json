@@ -1,0 +1,38 @@
+[
+  {
+    "id": "949bbc49-2a8b-43d9-a156-38eec6ea340e",
+    "data": [
+      {
+        "text": "Bis dann",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3b895bbb-acae-47a1-8084-9fc40d504a63",
+    "data": [
+      {
+        "text": "Tschüs",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "8ae69401-5b67-425a-b369-cf51395d7994",
+    "data": [
+      {
+        "text": "Servus",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

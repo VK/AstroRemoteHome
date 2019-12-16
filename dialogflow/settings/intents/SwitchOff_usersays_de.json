@@ -1,0 +1,219 @@
+[
+  {
+    "id": "88f16d24-76c6-4fa8-b72c-109483202e3b",
+    "data": [
+      {
+        "text": "ich brauch ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " nicht",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "9cc7e5b1-139b-4fd2-b844-a12507539537",
+    "data": [
+      {
+        "text": "Ich bräuchte ",
+        "userDefined": false
+      },
+      {
+        "text": "D",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " nicht mehr",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "fc22f75a-9e96-443e-825f-bff6f45251f0",
+    "data": [
+      {
+        "text": "Ich brauch ",
+        "userDefined": false
+      },
+      {
+        "text": "D",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " nicht mehr",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4c65d973-91f3-4ad4-857c-d27e114af494",
+    "data": [
+      {
+        "text": "mach doch ",
+        "userDefined": false
+      },
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " aus",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "b8487706-2fa8-42f3-ae7e-556f73b80aa8",
+    "data": [
+      {
+        "text": "schalte doch ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " aus",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "aee485da-1621-4a6e-a2e5-b83f1367e8c2",
+    "data": [
+      {
+        "text": "Ich brauche ",
+        "userDefined": false
+      },
+      {
+        "text": "jetzt",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " nicht mehr",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "451f4ef2-8b29-4029-b047-b5b64b14ec29",
+    "data": [
+      {
+        "text": "Könntest du ",
+        "userDefined": false
+      },
+      {
+        "text": "D",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " ausschalten.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "c65f9f77-6521-43b5-8f4a-80b6e2b11c25",
+    "data": [
+      {
+        "text": "aktiviere ",
+        "userDefined": false
+      },
+      {
+        "text": "C",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a40699f4-4ee5-4de8-b3d9-6994ab4108d7",
+    "data": [
+      {
+        "text": "Stop ",
+        "userDefined": false
+      },
+      {
+        "text": "B",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "66441ea4-c29e-4288-8156-2a99c2dfa55c",
+    "data": [
+      {
+        "text": "A",
+        "alias": "Socket",
+        "meta": "@Socket",
+        "userDefined": false
+      },
+      {
+        "text": " ausschalten",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

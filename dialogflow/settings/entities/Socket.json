@@ -1,0 +1,9 @@
+{
+  "id": "121b7b99-4c1d-4027-bced-3910d8d14d07",
+  "name": "Socket",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": true,
+  "allowFuzzyExtraction": false
+}

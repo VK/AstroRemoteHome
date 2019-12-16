@@ -1,0 +1,104 @@
+[
+  {
+    "id": "81c17c8c-644a-432d-8ee2-a35d94fb42ec",
+    "data": [
+      {
+        "text": "Ich brauch ",
+        "userDefined": false
+      },
+      {
+        "text": "jetzt",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " alles.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "deda9935-de2f-48c1-be7f-7fdaada04e74",
+    "data": [
+      {
+        "text": "Alles aktivieren",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "be11d077-6e04-4239-a16b-13d6bd84e9c5",
+    "data": [
+      {
+        "text": "Komplett an",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a67faade-10bd-4f6e-b1f3-ef11f7ab8dba",
+    "data": [
+      {
+        "text": "Alles an",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e8491422-7820-4f7b-b936-8b6beb6eb689",
+    "data": [
+      {
+        "text": "Energie",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a82c3686-824c-4ecd-abc3-3c66905d6fe0",
+    "data": [
+      {
+        "text": "Ich bräuchte ",
+        "userDefined": false
+      },
+      {
+        "text": "jetzt",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " alles.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "614359d6-e98a-41b6-a2ae-ae60e91d8476",
+    "data": [
+      {
+        "text": "Kannst du alles einschalten.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

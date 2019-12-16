@@ -1,0 +1,137 @@
+[
+  {
+    "id": "60e76d87-b2e6-43de-99b6-a0fea215a649",
+    "data": [
+      {
+        "text": "ich brauch nichts mehr",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "532ea237-cd92-43c4-959e-ef9dbc92848c",
+    "data": [
+      {
+        "text": "Energie sparen",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d0405b78-9964-4410-adb0-5c1d25b54669",
+    "data": [
+      {
+        "text": "Kannst alles aus machen",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "4ed21e1a-7b2c-42f1-b561-8bdc62394ef1",
+    "data": [
+      {
+        "text": "Ich will ",
+        "userDefined": false
+      },
+      {
+        "text": "jetzt",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " ",
+        "userDefined": false
+      },
+      {
+        "text": "ins",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " Bett gehen",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "ea4917b1-9edb-4f70-8f81-09105a59a4bf",
+    "data": [
+      {
+        "text": "Bitte schalt doch alles aus",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "808db61a-6593-44fc-a73e-986cc635722d",
+    "data": [
+      {
+        "text": "Alles ausschalten",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "01cc0d7a-0597-409e-890f-f9d782a2995c",
+    "data": [
+      {
+        "text": "Alles aus",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "d188921a-fb87-4242-a681-98e08501bdc8",
+    "data": [
+      {
+        "text": "I brauch nix mehr.",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "836696b9-8a66-47bf-b037-2aa2a9fc9944",
+    "data": [
+      {
+        "text": "Ich brauch ",
+        "userDefined": false
+      },
+      {
+        "text": "jetzt",
+        "meta": "@sys.ignore",
+        "userDefined": false
+      },
+      {
+        "text": " nix mehr",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

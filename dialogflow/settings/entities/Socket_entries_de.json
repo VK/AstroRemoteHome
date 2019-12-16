@@ -1,0 +1,45 @@
+[
+  {
+    "value": "A",
+    "synonyms": [
+      "A"
+    ]
+  },
+  {
+    "value": "B",
+    "synonyms": [
+      "B"
+    ]
+  },
+  {
+    "value": "C",
+    "synonyms": [
+      "C"
+    ]
+  },
+  {
+    "value": "D",
+    "synonyms": [
+      "D"
+    ]
+  },
+  {
+    "value": "Schrankwand",
+    "synonyms": [
+      "Schrankwand"
+    ]
+  },
+  {
+    "value": "Eckleuchte",
+    "synonyms": [
+      "Eckleuchte"
+    ]
+  },
+  {
+    "value": "TV",
+    "synonyms": [
+      "TV",
+      "Fernseher"
+    ]
+  }
+]

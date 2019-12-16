@@ -6,6 +6,8 @@ All required time information is retrieved from remote services and the switch s
 
 The web app to control the setup is located at [vk.github.io/AstroRemoteHome/](https://vk.github.io/AstroRemoteHome/)
 
+The integration into Googles assistant is described in the Dialogflow directory.
+
 
 
 
