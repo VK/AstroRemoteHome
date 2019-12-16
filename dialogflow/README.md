@@ -7,6 +7,7 @@ With this integration you can control AstroRemoteHome via the Goolge Assistant a
 1. Create a dialogflow account and upload all files from the settings directory as zip file.
 
 2. Start a Python app with the program code from the fullfillment directory. The app reads all necessary variables from the environment, and can be easily served on services like Heroku.
+
     | key                 |  value                         |
     |:-------------       |:---------------                |
     | BASIC_AUTH_PASSWORD |  ???                           |
