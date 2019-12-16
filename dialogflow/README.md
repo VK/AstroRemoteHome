@@ -8,10 +8,12 @@ With this integration you can control AstroRemoteHome via the Goolge Assistant a
 
 2. Start a Python app with the program code from the fullfillment directory. The app reads all necessary variables from the environment, and can be easily served on services like Heroku.
 
+<center>
 key                 |  value
 :------------------:|:-----------------------------:|
 BASIC_AUTH_PASSWORD |  ???
 BASIC_AUTH_USERNAME |  ???
 CLOUDMQTT_URL       |  mqtt://user:pass@server:port
+</center>
     
 3. Register the webhook url as dialogflow fullfilment with the basic auth config from above.
