@@ -10,7 +10,7 @@ The integration into Googles assistant is described in the Dialogflow directory.
 
 
 
-<img src="https://vk.github.io/AstroRemoteHome/img/setup.png" height="472" width="850" />
+<img src="https://vk.github.io/AstroRemoteHome/img/setup.png" width="850" />
 
 
 
@@ -29,7 +29,7 @@ The integration into Googles assistant is described in the Dialogflow directory.
 
 Controller box                                               | Web App in action
 :---------------------------------------------------------------:|:-----------------------------------------------------------:
-<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" height="370" width="370" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" height="370" width="370" />  |  ![](https://vk.github.io/AstroRemoteHome/img/app.gif)
+<img src="https://vk.github.io/AstroRemoteHome/img/box_open.png" width="370" /><br/><img src="https://vk.github.io/AstroRemoteHome/img/box_closed.png" width="370" />  |  ![](https://vk.github.io/AstroRemoteHome/img/app.gif)
 
 
 ## Configuration
