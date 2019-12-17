@@ -2,20 +2,14 @@
 
 AstroRemoteHome is an Esp8266 Arduino project to remote controll 433 MHz sockets.
 Each one can be individually controlled base on a local time or relative to sunrise and sunset.
-All required time information is retrieved from remote services and the switch settings are exchanged via an MQTT.
-
-The web app to control the setup is located at [vk.github.io/AstroRemoteHome/](https://vk.github.io/AstroRemoteHome/)
-
-The integration into Googles assistant is described in the Dialogflow directory.
-
-
 
 <img src="https://vk.github.io/AstroRemoteHome/img/setup.png" width="850" />
 
 
-
-
-
+* All required time information is retrieved from remote services and the switch settings are exchanged via MQTT.
+* The web app to control the setup is located at [vk.github.io/AstroRemoteHome/](https://vk.github.io/AstroRemoteHome/).
+* An integration into Googles assistant (amongst others) is described in the Dialogflow directory.
+* The NFC tag in the lid opens the web app (with guest access) without entering passwords.
 
 
 # Setup
