@@ -267,10 +267,102 @@
                   </v-row>
 
                   <v-row class="tiny-row">
-                    <v-col cols="12" class="pa-0 ma-0" style="padding-right:9px !important;">
+                    <v-col cols="5" class="pa-0 ma-0 text-left" style="margin-top:-15px !important; margin-left: 10px !important; margin-right: -10px !important;">
+                      {{$t('word.irregularity')}}
+                    </v-col>
+                    <v-col cols="2" class="pa-0 ma-0" style="padding-right:9px !important; margin-top:-15px !important">
                       <v-icon>mdi-arrow-down</v-icon>
                     </v-col>
+                    <v-col cols="5" class="pa-0 ma-0">
+                      <v-switch v-model="autoSwitch.irreg" :label="irregLabel(autoSwitch.irreg)"
+                      color="primary"
+                      ></v-switch>
+                    </v-col>
                   </v-row>
+
+                  <v-row class="tiny-row irreg-row" v-if="autoSwitch.irreg">
+                    <v-col cols="3" class="text-left">
+                      {{$t('word.offtime')}}:
+                    </v-col>
+                    <v-col cols="9">
+                      <v-range-slider
+                        v-model="autoSwitch.offrange"
+                        max="120"
+                        min="5"
+                        step="5"
+                        hide-details
+                        class="align-center"
+                        :id="'offRange'+idx"
+                      >
+                        <template v-slot:prepend>
+                          <v-text-field
+                            v-model="autoSwitch.offrange[0]"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 45px"
+                            :id="'offRangeStart'+idx"
+                          ></v-text-field>
+                        </template>
+                        <template v-slot:append>
+                          <v-text-field
+                            v-model="autoSwitch.offrange[1]"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 45px"
+                            :id="'offRangeEnd'+idx"
+                          ></v-text-field>
+                        </template>
+                      </v-range-slider>
+                    </v-col>
+                  </v-row>
+
+                  <v-row class="small-row irreg-row" v-if="autoSwitch.irreg">
+                    <v-col cols="3" class="text-left">
+                      {{$t('word.ontime')}}:
+                    </v-col>
+                    <v-col cols="9">
+                      <v-range-slider
+                        v-model="autoSwitch.onrange"
+                        max="120"
+                        min="5"
+                        step="5"
+                        hide-details
+                        class="align-center"
+                        :id="'onRange'+idx"
+                      >
+                        <template v-slot:prepend>
+                          <v-text-field
+                            v-model="autoSwitch.onrange[0]"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 45px"
+                            :id="'onRangeStart'+idx"
+                          ></v-text-field>
+                        </template>
+                        <template v-slot:append>
+                          <v-text-field
+                            v-model="autoSwitch.onrange[1]"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 45px"
+                            :id="'onRangeEnd'+idx"
+                          ></v-text-field>
+                        </template>
+                      </v-range-slider>
+                    </v-col>
+                  </v-row>
+
+                  <v-row class="space-row" v-if="autoSwitch.irreg">
+                  </v-row>
+
 
                   <v-row class="small-row stop-row">
                     <v-col
@@ -490,6 +582,14 @@ export default class App extends Vue {
     }, 300);
   }
 
+  private irregLabel(input: boolean) {
+    if(input) {
+      return this.$t('word.irregOn');
+    } else {
+      return this.$t('word.irregOff');
+    }
+  }
+
   private openConfigMenu() {
     let configMenu = this.$refs["configMenu"] as ConfigMenu;
     configMenu.show();
@@ -516,6 +616,8 @@ export default class App extends Vue {
     let newSocketMenu = this.$refs["newSocketMenu"] as NewSocketMenu;
     newSocketMenu.show();
   }
+
+
 
   private addNewSwitch(singleConfig: SingleConfig) {
     this.$store.commit("socketConfig/addNewSwitch", singleConfig);
@@ -591,8 +693,8 @@ export default class App extends Vue {
   margin-bottom: 0px;
   margin-left: 28px;
   margin-right: 20px;
-  min-height: 336px;
-  height: 336px;
+  min-height: 350px;
+  max-height:460px;
 }
 
 .big-input {
@@ -677,9 +779,13 @@ export default class App extends Vue {
   align-items: center;
 }
 .tiny-row {
-  height: 25px;
+  height: 42px;
   align-items: center;
 }
+.space-row {
+  height: 15px;
+}
+
 .fw-bold {
   font-weight: 700;
 }
@@ -743,6 +849,14 @@ export default class App extends Vue {
   margin-right: -20px;
   background: rgb(255, 240, 239);
 }
+.irreg-row {
+  border-left: 5px solid #329ce2;
+  margin-left: -28px;
+  border-right: 5px solid #329ce2;
+  margin-right: -20px;
+  background: #dfedf7;
+}
+
 .v-input--selection-controls {
   margin-top: 0px !important;
   margin-bottom: 0px !important;

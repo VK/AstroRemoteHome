@@ -7,6 +7,9 @@ type AutomaticSwitching = {
     eD:number;
     sT: string;
     eT: string;
+    onrange: number[];
+    offrange: number[];
+    irreg: boolean;
 };
 
 type SingleConfig = {

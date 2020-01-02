@@ -32,7 +32,10 @@ export default class MySocketsConfig extends VuexModule {
             sD: 0,
             eD: 0,
             sT: "t",
-            eT: "t"
+            eT: "t",
+            onrange: [10, 30],
+            offrange: [60, 120],
+            irreg: false
         };
 
         this.config.forEach((el: SingleConfig, idx) => {
