@@ -57,9 +57,10 @@ int makeSwitchMinutes(String time, String type)
     return output;
 }
 
-SwitchTimes makeSwitchTimes(uint8_t Year, uint8_t Month, uint8_t Day, AutoSwitch &sw)
+SwitchTimes makeSwitchTimes(uint8_t Year, uint8_t Month, uint8_t Day, AutoSwitch &sw, unsigned int last_logic)
 {
     SwitchTimes output = SwitchTimes();
+
     int i;
 
     //the seconds of today
@@ -130,6 +131,39 @@ SwitchTimes makeSwitchTimes(uint8_t Year, uint8_t Month, uint8_t Day, AutoSwitch
         output.endTime += random(-60 * sw.eD, 60 * sw.eD);
     }
 
+    if (sw.irreg)
+    {
+        //compute the first irregular switching
+        unsigned long newSwitchOn = output.startTime;
+        unsigned long newSwitchOff = output.startTime;
+        unsigned long nextSwitchOn = output.startTime;
+        newSwitchOff += random(60 * sw.onrange[0], 60 * sw.onrange[1]);
+        newSwitchOff = min(newSwitchOff, output.endTime);
+
+        //step the new switch on into the future
+        nextSwitchOn = newSwitchOff;
+        nextSwitchOn += random(60 * sw.offrange[0], 60 * sw.offrange[1]);
+
+        //compute some irregular switching times until the next switch on is output of the time window
+        while (nextSwitchOn < output.endTime && logic_lastrun > newSwitchOff)
+        {
+            //compute a new switch off time
+            newSwitchOn = nextSwitchOn;
+            newSwitchOff = nextSwitchOn;
+            newSwitchOff += random(60 * sw.onrange[0], 60 * sw.onrange[1]);
+            newSwitchOff = min(newSwitchOff, output.endTime);
+
+            //step the new switch on into the future
+            nextSwitchOn = newSwitchOff;
+            nextSwitchOn += random(60 * sw.offrange[0], 60 * sw.offrange[1]);
+        }
+
+        output.startTime = newSwitchOn;
+        output.endTime = newSwitchOff;
+
+    }
+   
+
     return output;
 }
 
@@ -164,10 +198,10 @@ void logic_loop()
         mqtt.publish(("Esp/" + wifiMAC + "/SUN").c_str(),
                      ("{\"sunrise\":" + String(logic_localSunrise) +
                       ", \"sunset\":" + String(logic_localSunset) +
-                      ", \"now\":\"" + String(hour()) + ":" + (minute() < 10 ? "0" + String(minute()) : String(minute()))  + "\"" + 
+                      ", \"now\":\"" + String(hour()) + ":" + (minute() < 10 ? "0" + String(minute()) : String(minute())) + "\"" +
                       ", \"offset\":" + String(timeZoneOffset) +
-                      ", \"dst\":" + String(daylightSaving) + "}"
-                     ).c_str(),
+                      ", \"dst\":" + String(daylightSaving) + "}")
+                         .c_str(),
                      true);
 
         yearIdx -= 1970; //make unix years
@@ -184,7 +218,7 @@ void logic_loop()
             {
 
                 //compute start and end times
-                SwitchTimes times = makeSwitchTimes(yearIdx, monthIdx, dayIdx, configs[ci].autoSwitch[ai]);
+                SwitchTimes times = makeSwitchTimes(yearIdx, monthIdx, dayIdx, configs[ci].autoSwitch[ai], logic_lastrun);
 
                 //check if the start time enabled
                 if (configs[ci].autoSwitch[ai].days[times.weekDayStartTime])
@@ -225,7 +259,3 @@ void logic_loop()
 
     logic_lastrun = thisrun;
 }
-
-
-
-

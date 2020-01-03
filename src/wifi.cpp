@@ -105,7 +105,7 @@ void update_timezone_offsets()
                 Serial.print(timeZoneOffset);
                 Serial.print(" ");
                 Serial.println(daylightSaving);
-            }
+            } 
 
             update_time();
 

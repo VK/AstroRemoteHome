@@ -6,7 +6,7 @@ std::vector<SingleConfig> configs;
 std::vector<String> days_index = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
 
 //variable to store the current version
-String current_version = "1.0_2019.11.22";
+String current_version = "1.0_2020.01.03A";
 
 //your wlan
 String wlanSsid;
@@ -20,8 +20,8 @@ String mqttUser;
 String mqttPassword;
 
 //timezone offset
-int timeZoneOffset;
-boolean daylightSaving;
+int timeZoneOffset = 60;
+boolean daylightSaving = false;
 //geolocation
 float latitude;
 float longitude;
@@ -38,7 +38,6 @@ bool config_setup()
     Serial.print("Current Version: ");
     Serial.println(current_version);
     Serial.println("Init Config");
-    
 
     //Initialize File System
     if (SPIFFS.begin())
@@ -71,6 +70,7 @@ bool config_setup()
     mqttUser = doc["mqtt"]["user"].as<String>();
     mqttPassword = doc["mqtt"]["password"].as<String>();
 
+
     if (doc.containsKey("loc") &&
         doc["loc"].containsKey("latitude") &&
         doc["loc"].containsKey("longitude"))
@@ -86,7 +86,7 @@ bool config_setup()
 
     api_location = doc["api"]["location"].as<String>();
     api_timezone = doc["api"]["timezone"].as<String>();
-    
+
     update_url = doc["update"]["url"].as<String>();
 
     char message[1000];

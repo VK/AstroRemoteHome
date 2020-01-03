@@ -267,72 +267,40 @@
                   </v-row>
 
                   <v-row class="tiny-row">
-                    <v-col cols="5" class="pa-0 ma-0 text-left" style="margin-top:-15px !important; margin-left: 10px !important; margin-right: -10px !important;">
-                      {{$t('word.irregularity')}}
-                    </v-col>
-                    <v-col cols="2" class="pa-0 ma-0" style="padding-right:9px !important; margin-top:-15px !important">
+                    <v-col
+                      cols="5"
+                      class="pa-0 ma-0 text-left"
+                      style="margin-top:-15px !important; margin-left: 10px !important; margin-right: -10px !important;"
+                    >{{$t('word.irregularity')}}</v-col>
+                    <v-col
+                      cols="2"
+                      class="pa-0 ma-0"
+                      style="padding-right:9px !important; margin-top:-15px !important"
+                    >
                       <v-icon>mdi-arrow-down</v-icon>
                     </v-col>
                     <v-col cols="5" class="pa-0 ma-0">
-                      <v-switch v-model="autoSwitch.irreg" :label="irregLabel(autoSwitch.irreg)"
-                      color="primary"
+                      <v-switch
+                        v-model="autoSwitch.irreg"
+                        :label="irregLabel(autoSwitch.irreg)"
+                        color="primary"
+                        @change="checkIrreg(item, autoSwitch)"
                       ></v-switch>
                     </v-col>
                   </v-row>
 
                   <v-row class="tiny-row irreg-row" v-if="autoSwitch.irreg">
-                    <v-col cols="3" class="text-left">
-                      {{$t('word.offtime')}}:
-                    </v-col>
-                    <v-col cols="9">
-                      <v-range-slider
-                        v-model="autoSwitch.offrange"
-                        max="120"
-                        min="5"
-                        step="5"
-                        hide-details
-                        class="align-center"
-                        :id="'offRange'+idx"
-                      >
-                        <template v-slot:prepend>
-                          <v-text-field
-                            v-model="autoSwitch.offrange[0]"
-                            class="mt-0 pt-0"
-                            hide-details
-                            single-line
-                            type="number"
-                            style="width: 45px"
-                            :id="'offRangeStart'+idx"
-                          ></v-text-field>
-                        </template>
-                        <template v-slot:append>
-                          <v-text-field
-                            v-model="autoSwitch.offrange[1]"
-                            class="mt-0 pt-0"
-                            hide-details
-                            single-line
-                            type="number"
-                            style="width: 45px"
-                            :id="'offRangeEnd'+idx"
-                          ></v-text-field>
-                        </template>
-                      </v-range-slider>
-                    </v-col>
-                  </v-row>
-
-                  <v-row class="small-row irreg-row" v-if="autoSwitch.irreg">
-                    <v-col cols="3" class="text-left">
-                      {{$t('word.ontime')}}:
-                    </v-col>
+                    <v-col cols="3" class="text-left mini-label">{{$t('word.ontime')}}:</v-col>
                     <v-col cols="9">
                       <v-range-slider
                         v-model="autoSwitch.onrange"
                         max="120"
-                        min="5"
-                        step="5"
+                        min="1"
+                        step="1"
                         hide-details
                         class="align-center"
                         :id="'onRange'+idx"
+                        @change="saveSocket(item)"
                       >
                         <template v-slot:prepend>
                           <v-text-field
@@ -343,6 +311,7 @@
                             type="number"
                             style="width: 45px"
                             :id="'onRangeStart'+idx"
+                            @change="saveSocket(item)"
                           ></v-text-field>
                         </template>
                         <template v-slot:append>
@@ -354,15 +323,55 @@
                             type="number"
                             style="width: 45px"
                             :id="'onRangeEnd'+idx"
+                            @change="saveSocket(item)"
                           ></v-text-field>
                         </template>
                       </v-range-slider>
                     </v-col>
                   </v-row>
 
-                  <v-row class="space-row" v-if="autoSwitch.irreg">
+                  <v-row class="small-row irreg-row" v-if="autoSwitch.irreg">
+                    <v-col cols="3" class="text-left mini-label">{{$t('word.offtime')}}:</v-col>
+                    <v-col cols="9">
+                      <v-range-slider
+                        v-model="autoSwitch.offrange"
+                        max="120"
+                        min="1"
+                        step="1"
+                        hide-details
+                        class="align-center"
+                        :id="'offRange'+idx"
+                        @change="saveSocket(item)"
+                      >
+                        <template v-slot:prepend>
+                          <v-text-field
+                            v-model="autoSwitch.offrange[0]"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 45px"
+                            :id="'offRangeStart'+idx"
+                            @change="saveSocket(item)"
+                          ></v-text-field>
+                        </template>
+                        <template v-slot:append>
+                          <v-text-field
+                            v-model="autoSwitch.offrange[1]"
+                            class="mt-0 pt-0"
+                            hide-details
+                            single-line
+                            type="number"
+                            style="width: 45px"
+                            :id="'offRangeEnd'+idx"
+                            @change="saveSocket(item)"
+                          ></v-text-field>
+                        </template>
+                      </v-range-slider>
+                    </v-col>
                   </v-row>
 
+                  <v-row class="space-row" v-if="autoSwitch.irreg"></v-row>
 
                   <v-row class="small-row stop-row">
                     <v-col
@@ -480,7 +489,10 @@
                 <v-tab-item key="10000" class="tab-content">
                   <v-container bg fill-height grid-list-md text-xs-center>
                     <v-layout row wrap align-center>
-                      <v-flex class="text-center pa-0">
+                      <v-flex
+                        class="text-center pa-0"
+                        style="position:relative; top:140px !important; "
+                      >
                         {{$t('explain.addSwitchA')}}
                         <v-icon>mdi-plus-circle-outline</v-icon>
                         {{$t('explain.addSwitchB')}}
@@ -577,16 +589,16 @@ export default class App extends Vue {
     setTimeout(function() {
       goTo("#panel" + i, {
         duration: 500,
-        offset: 0.74 * window.innerHeight - 390
+        offset: 0.74 * window.innerHeight - 400
       });
     }, 300);
   }
 
   private irregLabel(input: boolean) {
-    if(input) {
-      return this.$t('word.irregOn');
+    if (input) {
+      return this.$t("word.irregOn");
     } else {
-      return this.$t('word.irregOff');
+      return this.$t("word.irregOff");
     }
   }
 
@@ -617,8 +629,6 @@ export default class App extends Vue {
     newSocketMenu.show();
   }
 
-
-
   private addNewSwitch(singleConfig: SingleConfig) {
     this.$store.commit("socketConfig/addNewSwitch", singleConfig);
 
@@ -647,8 +657,30 @@ export default class App extends Vue {
     deleteSocketMenu.startDelete(singleConfig, component);
   }
 
+  /**
+   * Save the new socket config via mqtt
+   */
   private saveSocket(singleConfig: SingleConfig) {
     this.$store.commit("socketConfig/saveSocket", singleConfig);
+  }
+
+  /**
+   * Set the irregular switching ranges if not set and save the new switchting
+   */
+  private checkIrreg(
+    singleConfig: SingleConfig,
+    autoSwitch: AutomaticSwitching
+  ) {
+    if (autoSwitch.irreg) {
+      if (!autoSwitch.onrange) {
+        autoSwitch.onrange = [10, 30];
+      }
+      if (!autoSwitch.offrange) {
+        autoSwitch.offrange = [60, 120];
+      }
+    }
+
+    this.saveSocket(singleConfig);
   }
 
   private setStartTime(
@@ -693,8 +725,8 @@ export default class App extends Vue {
   margin-bottom: 0px;
   margin-left: 28px;
   margin-right: 20px;
-  min-height: 350px;
-  max-height:460px;
+  min-height: 340px;
+  max-height: 460px;
 }
 
 .big-input {
@@ -861,5 +893,14 @@ export default class App extends Vue {
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   padding-top: 10px !important;
+}
+
+.mini-label {
+  font-size: 0.75rem !important;
+  font-weight: 900;
+}
+
+.tab-content .v-input--switch .v-label {
+  margin-left: 10px !important;
 }
 </style>

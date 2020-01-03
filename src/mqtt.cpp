@@ -2,8 +2,10 @@
 #include "config.h"
 #include "wifi.h"
 #include "radio.h"
+#include "exception"
 
 PubSubClient mqtt(espClient);
+String clientId = "ESP8266Client-";
 
 /***
  * Parse a Json part and crate the AutoSwitch class
@@ -20,6 +22,15 @@ AutoSwitch getAutoSwitch(JsonVariant &value)
     output.eD = value["eD"].as<unsigned int>();
     output.sT = value["sT"].as<String>();
     output.eT = value["eT"].as<String>();
+
+    if (value.containsKey("irreg"))
+    {
+        output.irreg = value["irreg"].as<bool>();
+        output.onrange[0] = value["onrange"][0].as<int>();
+        output.onrange[1] = value["onrange"][1].as<int>();
+        output.offrange[0] = value["offrange"][0].as<int>();
+        output.offrange[1] = value["offrange"][1].as<int>();
+    }
 
     JsonArray dayArray = value["days"].as<JsonArray>();
     for (JsonVariant dayValue : dayArray)
@@ -211,13 +222,16 @@ bool mqtt_setup()
         espClient.setInsecure();
     }
 
+    clientId = "ESP8266Client-";
+    clientId += WiFi.macAddress();
+
     mqtt.setServer(mqttServer.c_str(), mqttPort);
     mqtt.setCallback(mqtt_callback);
     int countdown = 2;
     Serial.print("MQTT ...");
     while (countdown > 0 && !mqtt.connected())
     {
-        if (mqtt.connect("ESP8266Client", mqttUser.c_str(), mqttPassword.c_str()))
+        if (mqtt.connect(clientId.c_str(), mqttUser.c_str(), mqttPassword.c_str()))
         {
             Serial.println(" connected.");
         }
@@ -279,6 +293,15 @@ void mqtt_publish(SingleConfig &cfg)
         val["eT"] = sw.eT;
         val["sD"] = sw.sD;
         val["eD"] = sw.eD;
+
+        JsonArray onRange = val["onrange"].to<JsonArray>();
+        onRange.add(sw.onrange[0]);
+        onRange.add(sw.onrange[1]);
+        JsonArray offRange = val["offrange"].to<JsonArray>();
+        offRange.add(sw.offrange[0]);
+        offRange.add(sw.offrange[1]);
+
+        val["irreg"] = sw.irreg;
         JsonArray dayArray = val["days"].to<JsonArray>();
         for (int i = 0; i < 7; i++)
         {

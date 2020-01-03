@@ -25,6 +25,9 @@ public:
     String eT;
     unsigned int sD;
     unsigned int eD;
+    unsigned int onrange[2] = {10, 30};
+    unsigned int offrange[2] = {60, 120};
+    boolean irreg = false;
 };
 class SingleConfig
 {
@@ -66,7 +69,6 @@ extern String api_timezone;
 extern String update_url;
 //version tracking
 extern String current_version;
-
 
 bool config_setup();
 
