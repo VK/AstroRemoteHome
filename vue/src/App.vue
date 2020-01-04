@@ -29,7 +29,11 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item v-for="(item,i) in $store.state.appState.Esps " :key="i">
+        <v-list-item
+          v-for="(item,i) in $store.state.appState.Esps "
+          :key="i"
+          @click="openEspConfigMenu(i)"
+        >
           <v-list-item-action style="align-self: start;">
             <v-icon>mdi-chip</v-icon>
           </v-list-item-action>
@@ -100,6 +104,21 @@
                   :key="idx"
                   class="tab-content text-center"
                 >
+                  <v-row class="small-row">
+                    <v-col cols="12">
+                      <v-slider
+                        v-model="autoSwitch.mode"
+                        :tick-labels="$t('word.modes')"
+                        :max="3"
+                        step="1"
+                        ticks="always"
+                        tick-size="5"
+                        style="margin-top:-10px"
+                        @change="saveSocket(item)"
+                      ></v-slider>
+                    </v-col>
+                  </v-row>
+
                   <v-row class="small-row">
                     <v-col class="pa-0">
                       <v-checkbox
@@ -540,6 +559,7 @@
       <span class="white--text" style="width:70px"></span>
     </v-footer>
     <Config-Menu ref="configMenu" />
+    <Esp-Config-Menu ref="espConfigMenu" />
     <NewSocketMenu ref="newSocketMenu" />
     <SetTimeMenu ref="setTimeMenu" />
     <DeleteSwitchMenu ref="deleteSwitchMenu" />
@@ -551,6 +571,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import { bus } from "./main";
 import ConfigMenu from "./components/ConfigMenu.vue";
+import EspConfigMenu from "./components/EspConfigMenu.vue";
 import NewSocketMenu from "./components/NewSocketMenu.vue";
 import SetTimeMenu from "./components/SetTimeMenu.vue";
 import DeleteSwitchMenu from "./components/DeleteSwitchMenu.vue";
@@ -563,6 +584,7 @@ import goTo from "vuetify/src/services/goto";
   name: "App",
   components: {
     ConfigMenu,
+    EspConfigMenu,
     NewSocketMenu,
     SetTimeMenu,
     DeleteSwitchMenu,
@@ -589,7 +611,7 @@ export default class App extends Vue {
     setTimeout(function() {
       goTo("#panel" + i, {
         duration: 500,
-        offset: 0.74 * window.innerHeight - 400
+        offset: 0.74 * window.innerHeight - 430
       });
     }, 300);
   }
@@ -605,6 +627,11 @@ export default class App extends Vue {
   private openConfigMenu() {
     let configMenu = this.$refs["configMenu"] as ConfigMenu;
     configMenu.show();
+  }
+
+  private openEspConfigMenu(mac: string) {
+    let espConfigMenu = this.$refs["espConfigMenu"] as EspConfigMenu;
+    espConfigMenu.show(mac);
   }
 
   private stopTheEvent() {}
@@ -726,7 +753,7 @@ export default class App extends Vue {
   margin-left: 28px;
   margin-right: 20px;
   min-height: 340px;
-  max-height: 460px;
+  max-height: 510px;
 }
 
 .big-input {

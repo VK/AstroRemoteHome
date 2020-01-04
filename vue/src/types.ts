@@ -10,6 +10,7 @@ type AutomaticSwitching = {
     onrange: number[];
     offrange: number[];
     irreg: boolean;
+    mode: number;
 };
 
 type SingleConfig = {
@@ -27,6 +28,13 @@ type RadioSignal = {
 };
 
 type AllConfigs = SingleConfig[];
+
+
+type SingleDevice = {
+    state: string;
+};
+
+
 
 
 interface TabHandleData {

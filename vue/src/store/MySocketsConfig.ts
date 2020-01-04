@@ -8,7 +8,7 @@ import store from '@/store';
 export default class MySocketsConfig extends VuexModule {
 
     public config: AllConfigs = [];
-
+    
 
     @Mutation
     public reset(data: any): void {
@@ -35,7 +35,8 @@ export default class MySocketsConfig extends VuexModule {
             eT: "t",
             onrange: [10, 30],
             offrange: [60, 120],
-            irreg: false
+            irreg: false,
+            mode: 0
         };
 
         this.config.forEach((el: SingleConfig, idx) => {

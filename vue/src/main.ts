@@ -34,6 +34,7 @@ const i18n = new VueI18n({
         mqttConfig: 'MQTT config',
         mqttConnect: 'Connect',
         mqttDisconnect: 'Disconnect',
+        espConfig: 'ESP config',
         time: 'Time',
         close: 'Close',
         save: 'Save',
@@ -50,6 +51,9 @@ const i18n = new VueI18n({
         irregOff: 'disabled',
         offtime: 'Minutes off',
         ontime: 'Minutes on',
+        modes: ['on', 'off', 'at home', 'away'],
+        knowndevice: 'Known devices',
+        newdevice: 'New device IP or DNS name'
       },
       explain: {
         learnSwitch: "Please select the switching state you want to learn.\nThen press the remote control until the selected button changes its color.",
@@ -57,7 +61,8 @@ const i18n = new VueI18n({
         deleteSocket: "Do you really want to delete the socket {}?",
         addSwitchA: "Add automatic switch times with",
         addSwitchB: ".",
-        editConfig: 'Enter PIN to edit the configuration.'
+        editConfig: 'Enter PIN to edit the configuration.',
+        addNetworkDevice: 'Enter the IP addresses or DNS names of the devices that we can use for presence detection.'
       },
       days: {
         mo: "Mo",
@@ -90,6 +95,7 @@ const i18n = new VueI18n({
         mqttConfig: 'MQTT Konfiguration',
         mqttConnect: 'Verbinden',
         mqttDisconnect: 'Verbindung Trennen',
+        espConfig: 'ESP Konfiguration',
         time: 'Zeit',
         close: 'Schließen',
         save: 'Speichern',
@@ -106,6 +112,9 @@ const i18n = new VueI18n({
         irregOff: 'deaktiviert',
         offtime: 'Minuten aus',
         ontime: 'Minuten an',
+        modes: ['an', 'aus', 'zuhause', 'weg'],
+        knowndevice: 'Bekannte Geräte',
+        newdevice: 'Neue Geräte IP oder DNS-Name'
       },
       explain: {
         learnSwitch: "Bitte wählen Sie den Schaltzustand, den Sie registrieren möchten.\nDrücken Sie dann die Fernbedienung, bis der unten ausgewählte Knopf seine Farbe wechselt.",
@@ -113,7 +122,8 @@ const i18n = new VueI18n({
         deleteSocket: "Möchten Sie die Steckdose {name} wirklich löschen?",
         addSwitchA: "Mit ",
         addSwitchB: " automatische Schaltzeiten hinzufügen.",
-        editConfig: 'PIN eingeben, um die Konfiguration zu bearbeiten.'
+        editConfig: 'PIN eingeben, um die Konfiguration zu bearbeiten.',
+        addNetworkDevice: 'Geben Sie die IP-Adressen oder DNS-Namen der Geräte ein, die wir zur Anwesenheitserkennung verwenden können.'
       },
       days: {
         mo: "Mo",

@@ -3,6 +3,7 @@ import { Client } from "paho-mqtt";
 import store from '@/store';
 import "../types";
 import LZString from "lz-string";
+import { VMenu } from 'vuetify/lib';
 
 
 
@@ -23,6 +24,7 @@ export default class AppState extends VuexModule {
     public client: any;
 
     public Esps: { [id: string]: any; } = {};
+    public NetworkDevices: { [mac: string]: { [ip: string]: SingleDevice; } } = {};
 
 
     public static pad(value: any, size: any = 2): String {
@@ -165,6 +167,7 @@ export default class AppState extends VuexModule {
             if (topic.startsWith("Esp")) {
                 let parts = topic.split('/');
 
+
                 if (parts.length == 3) {
                     if (!(parts[1] in this.Esps)) {
                         this.Esps[parts[1]] = {
@@ -183,6 +186,16 @@ export default class AppState extends VuexModule {
                         this.Esps[parts[1]]["LAT"] = data["latitude"];
                     }
 
+                    if (parts[2] == "MasterState") {
+
+                        if (message.payloadString == "online") {
+                            this.Esps[parts[1]]["MODE"] = "at home";
+                        } else {
+                            this.Esps[parts[1]]["MODE"] = "away";
+                        }
+
+                    }
+
                     if (parts[2] == "VERS") {
                         this.Esps[parts[1]]["VERS"] = message.payloadString;
                     }
@@ -197,6 +210,25 @@ export default class AppState extends VuexModule {
                             + AppState.pad(data["sunset"] % 60);
                         this.Esps[parts[1]]["UP"] = data["now"];
                     }
+                }
+
+
+                //handle 4 component network devices in the area of certain Esps
+                if (parts.length == 4) {
+                    if (message.payloadString !== "") {
+
+                        if (!(parts[1] in this.NetworkDevices)) {
+                            this.NetworkDevices[parts[1]] = {}
+                        }
+
+                        this.NetworkDevices[parts[1]][parts[3]] = {
+                            state: message.payloadString
+                        }
+
+                    } else {
+                        delete this.NetworkDevices[parts[1]][parts[3]];
+                    }
+                   
                 }
             }
 
@@ -237,6 +269,21 @@ export default class AppState extends VuexModule {
         //console.log(message);
     }
 
+
+
+    /* handle device add and removal */
+
+    @Mutation
+    public addNetworkDevice(message: any): void {
+        this.client.publish("Esp/" + message.mac + "/Master/" + message.ip, "new", 2, true);
+    }
+
+    @Mutation
+    public removeNetworkDevice(message: any): void {
+        this.client.publish("Esp/" + message.mac + "/Master/" + message.ip, "", 2, true);
+    }
+
+    /* end handle device add and removal */
 
 
 
