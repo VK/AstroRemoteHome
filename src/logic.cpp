@@ -4,6 +4,7 @@
 #include "mqtt.h"
 #include <TimeLib.h>
 #include "dusk2dawn.h"
+#include "masterScanner.h"
 
 // leap year calulator expects year argument as years offset from 1970
 #define LEAP_YEAR(Y) (((1970 + (Y)) > 0) && !((1970 + (Y)) % 4) && (((1970 + (Y)) % 100) || !((1970 + (Y)) % 400)))
@@ -160,9 +161,7 @@ SwitchTimes makeSwitchTimes(uint8_t Year, uint8_t Month, uint8_t Day, AutoSwitch
 
         output.startTime = newSwitchOn;
         output.endTime = newSwitchOff;
-
     }
-   
 
     return output;
 }
@@ -214,7 +213,31 @@ void logic_loop()
         //for (AutoSwitch sw : configs[ci].autoSwitch)
         for (unsigned int ai = 0; ai < configs[ci].autoSwitch.size(); ai++)
         {
-            if (configs[ci].autoSwitch[ai].start != "" && configs[ci].autoSwitch[ai].end != "")
+            //check if switching mode suggests switching
+            bool switchCheckNeed = false;
+            if (configs[ci].autoSwitch[ai].mode == 0)
+            {
+                //if the switching mode is on
+                switchCheckNeed = true;
+            }
+            else
+            {
+                bool online = masterScanner_online();
+
+                //if the switching mode is at home and one device is online
+                if (configs[ci].autoSwitch[ai].mode == 2 && online)
+                {
+                    switchCheckNeed = true;
+                }
+
+                //if the switching mode is away and now device is online
+                if (configs[ci].autoSwitch[ai].mode == 3 && !online)
+                {
+                    switchCheckNeed = true;
+                }
+            }
+
+            if (switchCheckNeed && configs[ci].autoSwitch[ai].start != "" && configs[ci].autoSwitch[ai].end != "")
             {
 
                 //compute start and end times

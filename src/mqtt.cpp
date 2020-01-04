@@ -2,7 +2,7 @@
 #include "config.h"
 #include "wifi.h"
 #include "radio.h"
-#include "exception"
+#include "masterScanner.h"
 
 PubSubClient mqtt(espClient);
 String clientId = "ESP8266Client-";
@@ -22,6 +22,11 @@ AutoSwitch getAutoSwitch(JsonVariant &value)
     output.eD = value["eD"].as<unsigned int>();
     output.sT = value["sT"].as<String>();
     output.eT = value["eT"].as<String>();
+
+    if (value.containsKey("mode"))
+    {
+        output.mode = value["mode"].as<int>();
+    }
 
     if (value.containsKey("irreg"))
     {
@@ -68,6 +73,50 @@ void mqtt_callback(char *topic, byte *payload, unsigned int length)
 
         radio.setProtocol(proto);
         radio.send(value, length);
+    }
+
+    //handle master devices
+    if (strncmp(topic, ("Esp/" + wifiMAC + "/Master/").c_str(), 29) == 0)
+    {
+        String newMasterIP = String(topic).substring(29);
+
+        //delete a masterDevice
+        if (strcmp(message.c_str(), "") == 0)
+        {
+            Serial.print("Delete Master Device ");
+            Serial.println(newMasterIP);
+
+            for (unsigned int i = 0; i < masterDevices.size(); i++)
+            {
+                if (masterDevices[i].IP == newMasterIP)
+                {
+                    masterDevices.erase(masterDevices.begin() + i);
+                    return;
+                }
+            }
+        }
+        else
+        {
+            //check if master device already known
+
+            bool found = false;
+            for (unsigned int i = 0; i < masterDevices.size(); i++)
+            {
+                if (masterDevices[i].IP == newMasterIP)
+                {
+                    found = true;
+                }
+            }
+
+            if (!found)
+            {
+                MasterDevice newObject = MasterDevice();
+                newObject.IP = newMasterIP;
+                masterDevices.push_back(newObject);
+                Serial.print("Add new Master Device ");
+                Serial.println(newMasterIP);
+            }
+        }
     }
 
     if (strncmp(topic, "MySockets/", 10) == 0)
@@ -261,12 +310,37 @@ bool mqtt_setup()
 
     mqtt.subscribe("MySockets/#");
     mqtt.subscribe("Esp/send");
+    mqtt.subscribe(("Esp/" + wifiMAC + "/Master/#").c_str());
     return true;
 }
 
 void mqtt_disconnect()
 {
     mqtt.disconnect();
+}
+
+void mqtt_master_update(MasterDevice device)
+{
+    if (device.online)
+    {
+        mqtt.publish(("Esp/" + wifiMAC + "/Master/" + device.IP).c_str(), "online", true);
+    }
+    else
+    {
+        mqtt.publish(("Esp/" + wifiMAC + "/Master/" + device.IP).c_str(), "offline", true);
+    }
+}
+
+void mqtt_master_mode()
+{
+    if (masterScanner_online())
+    {
+        mqtt.publish(("Esp/" + wifiMAC + "/MasterState").c_str(), "online", true);
+    }
+    else
+    {
+        mqtt.publish(("Esp/" + wifiMAC + "/MasterState").c_str(), "offline", true);
+    }
 }
 
 void mqtt_publish(SingleConfig &cfg)
@@ -293,6 +367,7 @@ void mqtt_publish(SingleConfig &cfg)
         val["eT"] = sw.eT;
         val["sD"] = sw.sD;
         val["eD"] = sw.eD;
+        val["mode"] = sw.mode;
 
         JsonArray onRange = val["onrange"].to<JsonArray>();
         onRange.add(sw.onrange[0]);

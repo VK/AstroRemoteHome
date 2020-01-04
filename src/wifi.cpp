@@ -155,6 +155,9 @@ void wifi_loop()
                 //publish mac and ip of this device
                 mqtt.publish(("Esp/" + wifiMAC + "/IP").c_str(), wifiIP.c_str(), true);
                 keepalive_send_loop = 0;
+
+                //update mode
+                mqtt_master_mode();
             }
         }
         else

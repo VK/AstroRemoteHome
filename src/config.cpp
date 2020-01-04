@@ -5,8 +5,12 @@ std::vector<SingleConfig> configs;
 //way to order the days of a week
 std::vector<String> days_index = {"Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"};
 
+//the master device vector vector
+std::vector<MasterDevice> masterDevices;
+
+
 //variable to store the current version
-String current_version = "1.0_2020.01.03A";
+String current_version = "1.1_2020.01.04B";
 
 //your wlan
 String wlanSsid;

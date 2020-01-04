@@ -9,6 +9,8 @@ extern PubSubClient mqtt;
 
 bool mqtt_setup();
 void mqtt_disconnect();
+void mqtt_master_update(MasterDevice device);
 void mqtt_publish(SingleConfig &cfg);
+void mqtt_master_mode();
 
 #endif

@@ -28,6 +28,7 @@ public:
     unsigned int onrange[2] = {10, 30};
     unsigned int offrange[2] = {60, 120};
     boolean irreg = false;
+    int mode = 0;
 };
 class SingleConfig
 {
@@ -42,6 +43,15 @@ public:
 extern std::vector<String> days_index;
 
 extern std::vector<SingleConfig> configs;
+
+class MasterDevice
+{
+public:
+    String IP;
+    unsigned long nextCheck = 0;
+    bool online = false;
+};
+extern std::vector<MasterDevice> masterDevices;
 
 //your wlan
 extern String wlanSsid;

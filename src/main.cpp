@@ -7,6 +7,7 @@
 #include "wifi.h"
 #include "mqtt.h"
 #include "logic.h"
+#include "masterScanner.h"
 
 DynamicJsonDocument doc(5000);
 
@@ -21,6 +22,7 @@ void setup()
       radio_setup() &&
       wifi_setup() &&
       mqtt_setup() &&
+      masterScanner_setup() &&
       logic_setup())
   {
     Serial.println("Init Successfull");
@@ -37,6 +39,7 @@ void loop()
 {
   radio_loop();
   wifi_loop();
+  masterScanner_loop();
   if (interval < 10 || interval % 50 == 0)
   {
     logic_loop();
