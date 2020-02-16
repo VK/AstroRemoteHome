@@ -49,6 +49,7 @@ class MasterDevice
 public:
     String IP;
     unsigned long nextCheck = 0;
+    unsigned long lastSeen = 0;
     bool online = false;
 };
 extern std::vector<MasterDevice> masterDevices;

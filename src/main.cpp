@@ -9,7 +9,7 @@
 #include "logic.h"
 #include "masterScanner.h"
 
-DynamicJsonDocument doc(5000);
+DynamicJsonDocument doc(3000);
 
 void setup()
 {
