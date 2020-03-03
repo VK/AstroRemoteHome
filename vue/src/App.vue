@@ -554,7 +554,7 @@
       <div class="buffer-item"></div>
     </v-content>
     <v-footer color="blue darken-2" app>
-      <span class="white--text mr-auto">2019 Viktor Krückl</span>
+      <span class="white--text mr-auto">2020 <a href="https://github.com/VK" class="white--text fw-bold">VK</a></span>
       <span class="white--text">{{$t('connState.' + $store.state.appState.connectionState)}}</span>
       <span class="white--text" style="width:70px"></span>
     </v-footer>
@@ -929,5 +929,9 @@ export default class App extends Vue {
 
 .tab-content .v-input--switch .v-label {
   margin-left: 10px !important;
+}
+
+a {
+    text-decoration: none !important;
 }
 </style>
