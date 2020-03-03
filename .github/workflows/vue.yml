@@ -17,11 +17,6 @@ jobs:
         with:
           node-version: '10.x'
 
-      - name: Cache NPM
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-
       - name: Npm install
         run: npm install
         working-directory: ./vue
