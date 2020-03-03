@@ -22,7 +22,7 @@ jobs:
         working-directory: ./vue
       
       - name: Npm build
-        run: npm build
+        run: npm run build
         working-directory: ./vue
 
       - name: deploy
