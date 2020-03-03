@@ -24,7 +24,22 @@ jobs:
     - name: Run PlatformIO
       run: platformio run
 
-    - name: Publish firmware
+    - name: Create date tag
+      id: devtag
+      run: echo "::set-output name=value::$(date +'dev-v%Y-%m-%d-%H-%M')"
+
+
+    - name: Publish firmware Permanent
+      uses: svenstaro/upload-release-action@v1-release
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: .pio/build/esp32dev/firmware.bin
+        asset_name: firmware.bin
+        tag: ${{ steps.devtag.outputs.value  }}
+        overwrite: true
+        allowUpdates: true
+
+    - name: Publish firmware Latest
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -32,3 +47,4 @@ jobs:
         asset_name: firmware.bin
         tag: dev
         overwrite: true
+        allowUpdates: true
