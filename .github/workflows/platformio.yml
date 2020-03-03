@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    
+
     - name: Set up Python
       uses: actions/setup-python@v1
 
@@ -24,7 +24,11 @@ jobs:
     - name: Run PlatformIO
       run: platformio run
 
-    - uses: actions/upload-artifact@v1
+    - name: Publish firmware
+      uses: svenstaro/upload-release-action@v1-release
       with:
-        name: firmware.bin
-        path: .pio/build/esp07/firmware.bin
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: .pio/build/esp07/firmware.bin
+        asset_name: firmware.bin
+        tag: ${{ github.ref }}
+        overwrite: true
