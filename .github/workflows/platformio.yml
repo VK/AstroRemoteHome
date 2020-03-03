@@ -33,7 +33,7 @@ jobs:
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: .pio/build/esp32dev/firmware.bin
+        file: .pio/build/esp07/firmware.bin
         asset_name: firmware.bin
         tag: ${{ steps.devtag.outputs.value  }}
         overwrite: true
