@@ -8,6 +8,7 @@
     "buildNode": "node deployNodeMCU.js"
   },
   "dependencies": {
+    "@mdi/font": "^5.0.45",
     "@types/lz-string": "^1.3.33",
     "@types/paho-mqtt": "^1.0.4",
     "core-js": "^2.6.5",

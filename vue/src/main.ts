@@ -6,6 +6,8 @@ import VueI18n from 'vue-i18n'
 import './registerServiceWorker'
 import vuetify from './plugins/vuetify';
 
+import '@mdi/font/css/materialdesignicons.css' 
+
 
 var userLangs = navigator.languages;
 var selectedLang = "";
