@@ -16,6 +16,6 @@ python main.py
 
 ## Docker Container
 ```
-docker build -t vikru/location-api-server .
-docker run -p 80:80 -t vikru/location-api-server
+docker build -t vikru/location-api-server-local .
+docker run -p 80:80 -t vikru/location-api-server-local
 ```
