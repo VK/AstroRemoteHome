@@ -8,8 +8,6 @@ from os import environ
 
 
 # load timezone finder
-from timezonefinder import TimezoneFinder
-tf = TimezoneFinder()
 from pytz import timezone
 import datetime
 
@@ -45,8 +43,7 @@ class GetTimeZone(Resource):
         '''Make a timezone lookup'''
 
         try:
-            loc = tf.timezone_at(lng=float(request.args["lng"]), lat=float(request.args["lat"]))
-            locTz = timezone(loc)
+            locTz = timezone("Europe/Berlin")
             now = datetime.datetime.utcnow()
 
             return {"gmtOffset": locTz.utcoffset(now).seconds, "dst": int(not locTz.dst(now).seconds == 0) }
