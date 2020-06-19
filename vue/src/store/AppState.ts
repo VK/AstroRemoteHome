@@ -78,8 +78,11 @@ export default class AppState extends VuexModule {
         if (uri.length == 2) {
             try {
                 this.storeMqttConfig = false;
-                let newConfig: any = JSON.parse(LZString.decompressFromEncodedURIComponent(uri[1]));
-                store.commit("appState/updateMQTTconfig", newConfig);
+                let configString = LZString.decompressFromEncodedURIComponent(uri[1]);
+                if (configString) {
+                    let newConfig: any = JSON.parse(configString);
+                    store.commit("appState/updateMQTTconfig", newConfig);
+                }
             } catch {
                 console.log("Problems parsing the settings");
             }
@@ -228,7 +231,7 @@ export default class AppState extends VuexModule {
                     } else {
                         delete this.NetworkDevices[parts[1]][parts[3]];
                     }
-                   
+
                 }
             }
 
