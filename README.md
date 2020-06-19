@@ -2,6 +2,8 @@
 
 ![PlatformIO CI](https://github.com/VK/AstroRemoteHome/workflows/PlatformIO%20CI/badge.svg)
 ![Vue CI](https://github.com/VK/AstroRemoteHome/workflows/Vue%20CI/badge.svg)
+![Docker Image location-api-server](https://github.com/VK/AstroRemoteHome/workflows/Docker%20Image%20vikru/location-api-server/badge.svg)
+![Docker Image location-api-server-local](https://github.com/VK/AstroRemoteHome/workflows/Docker%20Image%20vikru/location-api-server-local/badge.svg)
 
 AstroRemoteHome is an Esp8266 Arduino project to remote controll 433 MHz sockets.
 Each one can be individually controlled base on a local time or relative to sunrise and sunset.
