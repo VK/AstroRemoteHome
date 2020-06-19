@@ -1,0 +1,12 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+flask_restplus = "*"
+Werkzeug = "==0.16.0"
+geoip2 = "*"
+timezonefinder = "*"
+pytz = "*"
