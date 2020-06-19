@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "d0dc930ed81a3c160116650b801cce51",
+    "revision": "223e25be85c982fa7d50a3a25519d92f",
     "url": "/AstroRemoteHome/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/img/box_open.png"
   },
   {
-    "revision": "243617e59da6413aae0c",
-    "url": "/AstroRemoteHome/js/chunk-vendors.acbd0cc6.js"
+    "revision": "f9c3db064902d2d4e681",
+    "url": "/AstroRemoteHome/js/chunk-vendors.b6380d2a.js"
   },
   {
     "revision": "c7541093745c285f9e6d67b9ec8e0978",
@@ -32,35 +32,35 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/img/setup.png"
   },
   {
-    "revision": "bf2bb4eb2212ee8607c8",
-    "url": "/AstroRemoteHome/js/app.12d5270b.js"
+    "revision": "6fa8a75d3c0fe4d95c57",
+    "url": "/AstroRemoteHome/js/app.5aa95a5a.js"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/AstroRemoteHome/robots.txt"
   },
   {
-    "revision": "fe1545ef4dd1eef2f1e25528898fc0b3",
-    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.fe1545ef.ttf"
+    "revision": "dc85ceeb0daba687e36d8dde4ed4d352",
+    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.dc85ceeb.woff2"
   },
   {
-    "revision": "a1a0ed860f50ffd42ba46d7c10f30255",
-    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.a1a0ed86.eot"
+    "revision": "c32505e8c654310ece1da4e1c10eeb57",
+    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.c32505e8.woff"
   },
   {
-    "revision": "7fb0e3780372f10f804513e2e0c39e78",
-    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.7fb0e378.woff2"
+    "revision": "8a67040660444e8d8ee82a406d580d8f",
+    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.8a670406.eot"
   },
   {
-    "revision": "63d2a5950fc212096c3612f71ae66f64",
-    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.63d2a595.woff"
+    "revision": "6a2ddad1092a0a1c326b6d0e738e682b",
+    "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.6a2ddad1.ttf"
   },
   {
-    "revision": "243617e59da6413aae0c",
-    "url": "/AstroRemoteHome/css/chunk-vendors.e104e732.css"
+    "revision": "f9c3db064902d2d4e681",
+    "url": "/AstroRemoteHome/css/chunk-vendors.1412e587.css"
   },
   {
-    "revision": "bf2bb4eb2212ee8607c8",
+    "revision": "6fa8a75d3c0fe4d95c57",
     "url": "/AstroRemoteHome/css/app.07d4c1be.css"
   }
 ];
