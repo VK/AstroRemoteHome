@@ -70,3 +70,9 @@ The current version uses two remote services to collect the geolocation of the d
 You need to create an account to aquire your individual api keys to finish the configuration
 
 
+## Custom Docker Images
+
+* [**Firmware Server**](https://hub.docker.com/repository/docker/vikru/astroremotehome-firmware-server) to update the ESP8266 over-the-air
+* [**Location Api Server**](https://hub.docker.com/repository/docker/vikru/location-api-server) to compute the geolocation and timezones without the need of external services.
+* [**Local Location Api Server**](https://hub.docker.com/repository/docker/vikru/location-api-server-local) is a local version of the location api server and can be used if the house is not moving :) 
+
