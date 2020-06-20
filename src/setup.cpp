@@ -131,3 +131,35 @@ void run_setup()
 
     ESP.restart();
 }
+
+void update_config()
+{
+    //put some config update routines here
+    if (false)
+    {
+
+        doc["api"]["location"] = "???";
+        doc["api"]["timezone"] = "???";
+
+        Serial.print("update needed\nnew config:\n\n");
+        char message[1000];
+        serializeJson(doc, message);
+        Serial.println(message);
+        Serial.print("\nwrite file\n");
+
+        File file = SPIFFS.open("/config.json", "w");
+        if (serializeJson(doc, file) == 0)
+        {
+            Serial.println(F("Failed to write to file"));
+            file.close();
+        }
+        else
+        {
+            Serial.println("reboot with new config");
+            file.close();
+            delay(1000);
+
+            ESP.restart();
+        }
+    }
+}

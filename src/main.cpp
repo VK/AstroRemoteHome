@@ -26,6 +26,7 @@ void setup()
       logic_setup())
   {
     Serial.println("Init Successfull");
+    update_config();
   }
   else
   {

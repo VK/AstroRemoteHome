@@ -10,6 +10,7 @@
 #include "FS.h"
 
 void run_setup();
+void update_config();
 
 
 #endif

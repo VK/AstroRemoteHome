@@ -101,9 +101,9 @@ void update_timezone_offsets()
             {
                 timeZoneOffset = doc["gmtOffset"].as<int>() / 60;
                 daylightSaving = (doc["dst"].as<int>() == 1);
-                Serial.print("time   ");
+                Serial.print("=>offset   ");
                 Serial.print(timeZoneOffset);
-                Serial.print(" ");
+                Serial.print("minutes dst:");
                 Serial.println(daylightSaving);
             } 
 

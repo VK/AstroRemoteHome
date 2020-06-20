@@ -190,8 +190,10 @@ void logic_loop()
         Dusk2Dawn localSun(latitude, longitude, timeZoneOffset / 60.0 - daylightSaving);
 
         logic_localSunrise = localSun.sunrise(yearIdx, monthIdx, dayIdx, daylightSaving);
+        Serial.print("localSunrise ");
         Serial.println(logic_localSunrise);
         logic_localSunset = localSun.sunset(yearIdx, monthIdx, dayIdx, daylightSaving);
+        Serial.print("localSunset ");
         Serial.println(logic_localSunset);
 
         mqtt.publish(("Esp/" + wifiMAC + "/SUN").c_str(),
