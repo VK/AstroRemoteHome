@@ -48,3 +48,24 @@ jobs:
         tag: dev
         overwrite: true
         allowUpdates: true
+
+    - name: copy config.cpp
+      uses: canastro/copy-file-action@master
+      with:
+        source: "src/config.cpp"
+        target: "firmware_server/config.cpp"
+
+    - name: copy firmware.bin
+      uses: canastro/copy-file-action@master
+      with:
+        source: ".pio/build/esp07/firmware.bin"
+        target: "firmware_server/app/firmware.bin"
+
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: vikru/astroremotehome-firmware-server
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        workdir: firmware_server
+        snapshot: true

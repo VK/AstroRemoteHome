@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+CURRENT_VERSION=`cat /config.cpp | grep current_version | grep "=" | cut -d "=" -f2 | cut -d "\"" -f2`
+echo "CURRENT_VERSION: $CURRENT_VERSION"
+
+export CURRENT_VERSION
+
+# first arg is `-f` or `--some-option`
+if [ "${1#-}" != "$1" ]; then
+        set -- apache2-foreground "$@"
+fi
+
+exec "$@"
