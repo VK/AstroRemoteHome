@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "d3698983c94f02ae9764519cf1557bc5",
+    "revision": "9918902b64d03689f7398ab18821b644",
     "url": "/AstroRemoteHome/index.html"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/img/setup.png"
   },
   {
-    "revision": "89e4c694cdf848097369",
-    "url": "/AstroRemoteHome/js/app.a3ca9e91.js"
+    "revision": "845e846059f4dd6e1bd9",
+    "url": "/AstroRemoteHome/js/app.b678680b.js"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/css/chunk-vendors.1412e587.css"
   },
   {
-    "revision": "89e4c694cdf848097369",
+    "revision": "845e846059f4dd6e1bd9",
     "url": "/AstroRemoteHome/css/app.07d4c1be.css"
   }
 ];
