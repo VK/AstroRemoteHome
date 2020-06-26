@@ -1,5 +1,7 @@
 # AstroRemoteHome - Location Api Server
 
+![Docker Image location-api-server](https://github.com/VK/AstroRemoteHome/workflows/Docker%20Image%20vikru/location-api-server/badge.svg)
+
 The current version uses two remote services to collect the geolocation of the device and the current timezone after connecting to the local WLAN.
 
 If you want to run your own server you can use this reimplementation.
