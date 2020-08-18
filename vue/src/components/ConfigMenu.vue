@@ -39,6 +39,16 @@
               <v-text-field label="Port" type="number" required v-model="port"></v-text-field>
             </v-col>
           </v-row>
+          <v-row dense justify="center" class="w-100">
+            <v-radio-group v-model="useSSL" row class="pa-0 ma-0">
+              <v-col cols="6"  class="pa-0 ma-0 flex-center" >
+                <v-radio label="no SSL" :value="false"></v-radio>
+              </v-col>
+              <v-col cols="5"  class="pa-0 ma-0 w-25 flex-center">
+                <v-radio label="with SSL" :value="true"></v-radio>
+              </v-col>
+            </v-radio-group>
+          </v-row>
         </v-container>
       </v-card-text>
       <v-card-actions>
@@ -57,7 +67,7 @@ import { createDecorator } from "vue-class-component";
 import store from "../store";
 
 @Component({
-  name: "ConfigMenu"
+  name: "ConfigMenu",
 })
 export default class ConfigMenu extends Vue {
   public dialog: boolean = false;
@@ -66,6 +76,7 @@ export default class ConfigMenu extends Vue {
   user: string = "";
   password: string = "";
   port: number = 0;
+  useSSL: boolean = true;
 
   public show() {
     this.dialog = true;
@@ -76,6 +87,9 @@ export default class ConfigMenu extends Vue {
     this.user = this.$store.state.appState.mqttUser;
     this.password = this.$store.state.appState.mqttPassword;
     this.port = this.$store.state.appState.mqttPort;
+    this.useSSL = this.$store.state.appState.useSSL;
+
+    this.server = this.$store.state.appState.mqttServer;
 
     //if no configuration is set, no lock is used
     if (this.server == "" && this.user == "" && this.password == "") {
@@ -96,7 +110,8 @@ export default class ConfigMenu extends Vue {
         server: this.server,
         user: this.user,
         password: this.password,
-        port: Number(this.port)
+        port: Number(this.port),
+        useSSL: this.useSSL
       };
       this.$store.commit("appState/enableSaveMQTTconfig");
       this.$store.commit("appState/updateMQTTconfig", newConfig);
@@ -109,5 +124,10 @@ export default class ConfigMenu extends Vue {
 
 
 <style lang="scss">
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
 

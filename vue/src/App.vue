@@ -59,7 +59,7 @@
       <v-toolbar-title>VK AstroRemoteHome</v-toolbar-title>
     </v-app-bar>
 
-    <v-content>
+    <v-main>
       <v-container class="fill-height" fluid style="min-width:360px; max-width:500px;">
         <v-expansion-panels
           focusable
@@ -552,7 +552,7 @@
         </v-btn>
       </v-container>
       <div class="buffer-item"></div>
-    </v-content>
+    </v-main>
     <v-footer color="blue darken-2" app>
       <span class="white--text mr-auto">2020 <a href="https://github.com/VK" class="white--text fw-bold">VK</a></span>
       <span class="white--text">{{$t('connState.' + $store.state.appState.connectionState)}}</span>

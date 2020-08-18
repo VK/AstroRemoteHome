@@ -17,6 +17,7 @@ export default class AppState extends VuexModule {
     public mqttUser: string = "";
     public mqttPassword: string = "";
     public mqttPort: number = 8883;
+    public useSSL:boolean = true;
 
     public pin: string = "1543";
 
@@ -53,11 +54,16 @@ export default class AppState extends VuexModule {
             }
         }
 
+        if(!("useSSL" in newConfig) ) {
+            newConfig["useSSL"] = true;
+        }
+
         // save the data the state
         this.mqttServer = newConfig.server;
         this.mqttUser = newConfig.user;
         this.mqttPassword = newConfig.password;
         this.mqttPort = Number(newConfig.port);
+        this.useSSL = newConfig.useSSL;
 
         // save the data in local storage
         if (this.storeMqttConfig) {
@@ -117,7 +123,7 @@ export default class AppState extends VuexModule {
             store.commit("appState/onMQTTmessage", message);
         };
         var options: any = {
-            useSSL: true,
+            useSSL: this.useSSL,
             userName: this.mqttUser,
             password: this.mqttPassword,
             onSuccess: () => {
