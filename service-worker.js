@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/AstroRemoteHome/precache-manifest.664b4c1a575656c95cf41b03549b231f.js"
+  "/AstroRemoteHome/precache-manifest.20cf5727e2cf7e0147ea66c9b01a1343.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue"});

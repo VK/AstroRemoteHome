@@ -1,6 +1,6 @@
 self.__precacheManifest = [
   {
-    "revision": "171a615ad9b49b260ac968bcc30b76fc",
+    "revision": "8ac3242ced167043ae6d068fe0060f00",
     "url": "/AstroRemoteHome/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/img/box_open.png"
   },
   {
-    "revision": "85b19c67aa60a031417a",
-    "url": "/AstroRemoteHome/js/chunk-vendors.cbcfb0b2.js"
+    "revision": "6c2f66f42a4bdbe73303",
+    "url": "/AstroRemoteHome/js/chunk-vendors.e67e7a68.js"
   },
   {
     "revision": "c7541093745c285f9e6d67b9ec8e0978",
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/img/setup.png"
   },
   {
-    "revision": "be385ca5c1401c3a06aa",
-    "url": "/AstroRemoteHome/js/app.a6f5dba9.js"
+    "revision": "e27f18d9fc635b6e60b1",
+    "url": "/AstroRemoteHome/js/app.a22f778c.js"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
@@ -56,11 +56,11 @@ self.__precacheManifest = [
     "url": "/AstroRemoteHome/fonts/materialdesignicons-webfont.31d47085.woff"
   },
   {
-    "revision": "85b19c67aa60a031417a",
+    "revision": "6c2f66f42a4bdbe73303",
     "url": "/AstroRemoteHome/css/chunk-vendors.68bdc2be.css"
   },
   {
-    "revision": "be385ca5c1401c3a06aa",
+    "revision": "e27f18d9fc635b6e60b1",
     "url": "/AstroRemoteHome/css/app.20f45c23.css"
   }
 ];
