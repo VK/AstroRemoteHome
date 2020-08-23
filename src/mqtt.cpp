@@ -5,7 +5,7 @@
 #include "masterScanner.h"
 
 PubSubClient mqtt(espClient);
-String clientId = "ESP8266Client-";
+String clientId =  "AstroRemote-";
 
 /***
  * Parse a Json part and crate the AutoSwitch class
@@ -271,16 +271,18 @@ bool mqtt_setup()
         espClient.setInsecure();
     }
 
-    clientId = "ESP8266Client-";
+    clientId = "AstroRemote-";
     clientId += WiFi.macAddress();
 
     mqtt.setServer(mqttServer.c_str(), mqttPort);
     mqtt.setCallback(mqtt_callback);
-    int countdown = 2;
+
+    int countdown = 10;
     Serial.print("MQTT ...");
     while (countdown > 0 && !mqtt.connected())
     {
-        if (mqtt.connect(clientId.c_str(), mqttUser.c_str(), mqttPassword.c_str()))
+
+        if (mqtt.connect(clientId.c_str(), mqttUser.c_str(), mqttPassword.c_str()), 0, 0, 0, 0, 0)
         {
             Serial.println(" connected.");
         }
