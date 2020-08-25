@@ -14,9 +14,10 @@ import datetime
 
 
 app = Flask(__name__)
+app.config["APPLICATION_ROOT"] = environ.get('APPLICATION_ROOT', '/')     
 
 api = Api(app, version='1.0', title='AstroRemoteHome Time Api Local',
-          description='Reimplement some api calls for geolocation and timezones only based one location',)
+          description='Reimplement some api calls for geolocation and timezones only based one location',)   
 
 check_location = api.namespace( 'check', description='get the approximate geolocation by ip')
 @check_location.route("/")

@@ -19,6 +19,7 @@ import datetime
 
 
 app = Flask(__name__)
+app.config["APPLICATION_ROOT"] = environ.get('APPLICATION_ROOT', '/')
 
 api = Api(app, version='1.0', title='AstroRemoteHome Time Api',
           description='Reimplement some api calls for geolocation and timezones.',)
