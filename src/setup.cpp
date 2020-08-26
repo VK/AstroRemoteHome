@@ -135,11 +135,13 @@ void run_setup()
 void update_config()
 {
     //put some config update routines here
+
     if (false)
     {
 
         doc["api"]["location"] = "???";
         doc["api"]["timezone"] = "???";
+        doc["update"]["url"] = "???";
 
         Serial.print("update needed\nnew config:\n\n");
         char message[1000];
