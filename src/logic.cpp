@@ -22,6 +22,11 @@ bool logic_setup()
     return true;
 }
 
+void logic_trigger_recalc()
+{
+    next_dd_calc = 0;
+}
+
 struct SwitchTimes
 {
     unsigned long baseStartTime;

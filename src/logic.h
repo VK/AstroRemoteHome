@@ -10,6 +10,7 @@ extern int logic_localSunset;
 
 bool logic_setup();
 void logic_loop();
+void logic_trigger_recalc();
 
 
 

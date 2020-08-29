@@ -3,6 +3,7 @@
 #include "wifi.h"
 #include "radio.h"
 #include "masterScanner.h"
+#include "logic.h"
 
 PubSubClient mqtt(espClient);
 String clientId = "AstroRemote-";
@@ -79,6 +80,12 @@ void mqtt_callback(char *topic, byte *payload, unsigned int length)
     if (strncmp(topic, ("Esp/" + wifiMAC + "/reboot").c_str(), 28) == 0)
     {
         ESP.restart();
+    }
+
+    //handle esp reboot
+    if (strncmp(topic, ("Esp/" + wifiMAC + "/sendConfig").c_str(), 32) == 0)
+    {
+        mqtt_publish_config();
     }
 
     //handle master devices
@@ -304,8 +311,20 @@ bool mqtt_setup()
         return false;
     }
 
+    mqtt.publish(("Esp/" + wifiMAC + "/Message").c_str(), "", true);
+    mqtt_publish_config();
+
+    mqtt.subscribe("MySockets/#");
+    mqtt.subscribe("Esp/send");
+    mqtt.subscribe(("Esp/" + wifiMAC + "/Master/#").c_str());
+    mqtt.subscribe(("Esp/" + wifiMAC + "/reboot").c_str());
+    mqtt.subscribe(("Esp/" + wifiMAC + "/sendConfig").c_str());
+    return true;
+}
+
+void mqtt_publish_config()
+{
     //publish mac and ip of this device
-    mqtt.publish(("Esp/" + wifiMAC + "/Message").c_str(), "Start");
     mqtt.publish(("Esp/" + wifiMAC + "/IP").c_str(), wifiIP.c_str(), true);
 
     char PufferChar1[20];
@@ -315,12 +334,10 @@ bool mqtt_setup()
     mqtt.publish(("Esp/" + wifiMAC + "/LOC").c_str(), ("{\"longitude\":" + String(PufferChar2) + ", \"latitude\":" + String(PufferChar1) + "}").c_str(), true);
     mqtt.publish(("Esp/" + wifiMAC + "/IP").c_str(), wifiIP.c_str(), true);
     mqtt.publish(("Esp/" + wifiMAC + "/VERS").c_str(), current_version.c_str(), true);
+    mqtt.publish(("Esp/" + wifiMAC + "/LOC").c_str(), ("{\"longitude\":" + String(PufferChar2) + ", \"latitude\":" + String(PufferChar1) + "}").c_str(), true);
 
-    mqtt.subscribe("MySockets/#");
-    mqtt.subscribe("Esp/send");
-    mqtt.subscribe(("Esp/" + wifiMAC + "/Master/#").c_str());
-    mqtt.subscribe(("Esp/" + wifiMAC + "/reboot").c_str());
-    return true;
+    //a recalculation of the logic will send sunrise and sunset information
+    logic_trigger_recalc();
 }
 
 void mqtt_disconnect()
