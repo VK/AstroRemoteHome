@@ -204,7 +204,7 @@ void logic_loop()
         mqtt.publish(("Esp/" + wifiMAC + "/SUN").c_str(),
                      ("{\"sunrise\":" + String(logic_localSunrise) +
                       ", \"sunset\":" + String(logic_localSunset) +
-                      ", \"now\":\"" + String(hour()) + ":" + (minute() < 10 ? "0" + String(minute()) : String(minute())) + "\"" +
+                      ", \"now\":\"" + String((daylightSaving) ? (hour() - 1) % 24 : hour()) + ":" + (minute() < 10 ? "0" + String(minute()) : String(minute())) + "\"" +
                       ", \"offset\":" + String(timeZoneOffset) +
                       ", \"dst\":" + String(daylightSaving) + "}")
                          .c_str(),
