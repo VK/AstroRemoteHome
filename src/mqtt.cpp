@@ -319,6 +319,7 @@ bool mqtt_setup()
     mqtt.subscribe("MySockets/#");
     mqtt.subscribe("Esp/send");
     mqtt.subscribe(("Esp/" + wifiMAC + "/Master/#").c_str());
+    mqtt.subscribe(("Esp/" + wifiMAC + "/reboot").c_str());
     return true;
 }
 
