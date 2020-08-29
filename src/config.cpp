@@ -10,7 +10,7 @@ std::vector<MasterDevice> masterDevices;
 
 
 //variable to store the current version
-String current_version = "1.1_2020.08.29B";
+String current_version = "1.1_2020.08.29C";
 
 //your wlan
 String wlanSsid;
