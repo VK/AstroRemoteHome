@@ -58,6 +58,7 @@
         </v-container>
       </v-card-text>
       <v-card-actions>
+        <v-btn color="red darken-1" text @click="reboot">{{$t('word.reboot')}}</v-btn>
         <div class="flex-grow-1"></div>
         <v-btn color="blue darken-1" text @click="close">{{$t('word.close')}}</v-btn>
       </v-card-actions>
@@ -115,6 +116,12 @@ export default class EspConfigMenu extends Vue {
     store.commit("appState/removeNetworkDevice", { mac: this.mac, ip: name });
     delete this.devices[name];
     this.$nextTick(() => this.$forceUpdate());
+  }
+
+
+  
+  private reboot(name: string) {
+    store.commit("appState/rebootDevice", { mac: this.mac});
   }
 }
 </script>

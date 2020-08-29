@@ -55,7 +55,8 @@ const i18n = new VueI18n({
         ontime: 'Minutes on',
         modes: ['on', 'off', 'at home', 'away'],
         knowndevice: 'Known devices',
-        newdevice: 'New device IP or DNS name'
+        newdevice: 'New device IP or DNS name',
+        reboot: 'Reboot'
       },
       explain: {
         learnSwitch: "Please select the switching state you want to learn.\nThen press the remote control until the selected button changes its color.",
@@ -116,7 +117,8 @@ const i18n = new VueI18n({
         ontime: 'Minuten an',
         modes: ['an', 'aus', 'zuhause', 'weg'],
         knowndevice: 'Bekannte Geräte',
-        newdevice: 'Neue Geräte IP oder DNS-Name'
+        newdevice: 'Neue Geräte IP oder DNS-Name',
+        reboot: 'Neu Starten'
       },
       explain: {
         learnSwitch: "Bitte wählen Sie den Schaltzustand, den Sie registrieren möchten.\nDrücken Sie dann die Fernbedienung, bis der unten ausgewählte Knopf seine Farbe wechselt.",

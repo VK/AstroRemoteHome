@@ -5,7 +5,7 @@
 #include "masterScanner.h"
 
 PubSubClient mqtt(espClient);
-String clientId =  "AstroRemote-";
+String clientId = "AstroRemote-";
 
 /***
  * Parse a Json part and crate the AutoSwitch class
@@ -73,6 +73,12 @@ void mqtt_callback(char *topic, byte *payload, unsigned int length)
 
         radio.setProtocol(proto);
         radio.send(value, length);
+    }
+
+    //handle esp reboot
+    if (strncmp(topic, ("Esp/" + wifiMAC + "/reboot").c_str(), 28) == 0)
+    {
+        ESP.restart();
     }
 
     //handle master devices

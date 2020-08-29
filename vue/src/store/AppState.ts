@@ -292,6 +292,12 @@ export default class AppState extends VuexModule {
         this.client.publish("Esp/" + message.mac + "/Master/" + message.ip, "", 2, true);
     }
 
+
+    @Mutation
+    public rebootDevice(message: any): void {
+        this.client.publish("Esp/" + message.mac + "/reboot", "", 1, false);
+    }
+
     /* end handle device add and removal */
 
 
